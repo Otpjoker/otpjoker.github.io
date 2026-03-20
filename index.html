@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio BTS SIO SISR – Mathis Villain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080a0f;--bg2:#0e1119;--bg3:#151b26;--bg4:#1c2333;
+  --border:rgba(255,255,255,0.07);--border-h:rgba(255,255,255,0.15);
+  --accent:#38bdf8;--accent2:#34d399;--accent3:#fbbf24;--accent4:#f87171;
+  --text:#dde3ee;--muted:#64748b;--muted2:#94a3b8;
+  --font-ui:'Syne',sans-serif;--font-mono:'JetBrains Mono',monospace;
+  --r:8px;--r-lg:14px;--nav-w:230px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-mono);font-size:13px;line-height:1.7;overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px;}
+
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes glow{0%,100%{opacity:.6}50%{opacity:1}}
+@keyframes scanline{from{transform:translateY(-100%)}to{transform:translateY(100vh)}}
+@keyframes gradMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes pulse-ring{0%{transform:scale(.95);box-shadow:0 0 0 0 rgba(56,189,248,.4)}70%{transform:scale(1);box-shadow:0 0 0 8px rgba(56,189,248,0)}100%{transform:scale(.95);box-shadow:0 0 0 0 rgba(56,189,248,0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
+
+main{animation:fadeIn .5s ease both;}
+.reveal{opacity:1;transform:none;}
+.reveal.animate{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.animate.shown{opacity:1;transform:none;}
+
+.layout{display:flex;min-height:100vh;}
+
+aside{width:var(--nav-w);flex-shrink:0;position:fixed;top:0;left:0;height:100vh;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;padding:1.75rem 1.25rem;z-index:100;overflow-y:auto;}
+.aside-name{font-family:var(--font-ui);font-size:1rem;font-weight:800;color:var(--text);margin-bottom:2px;}
+.aside-name span{color:var(--accent);}
+.aside-sub{font-size:10px;color:var(--muted2);letter-spacing:.08em;margin-bottom:1.25rem;}
+.aside-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.2);color:var(--accent);font-size:10px;padding:4px 10px;border-radius:20px;margin-bottom:1.75rem;}
+.aside-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent2);animation:pulse-ring 2s infinite;}
+.nav-sep{font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:1.25rem 0 6px;padding:0 8px;}
+.aside-nav a{display:flex;align-items:center;gap:9px;padding:6px 8px;border-radius:var(--r);color:var(--muted2);text-decoration:none;font-size:12px;transition:all .18s;margin-bottom:1px;border-left:2px solid transparent;}
+.aside-nav a:hover{background:var(--bg3);color:var(--text);}
+.aside-nav a.active{background:rgba(56,189,248,0.08);color:var(--accent);border-left-color:var(--accent);animation:slideIn .2s ease both;}
+.nav-ico{width:16px;text-align:center;font-size:12px;flex-shrink:0;}
+.nav-indent{padding-left:26px !important;font-size:11px !important;}
+.nav-indent:not(.active){color:var(--muted) !important;}
+.aside-foot{margin-top:auto;padding-top:1.25rem;border-top:1px solid var(--border);}
+.aside-foot-session{font-size:10px;color:var(--muted);letter-spacing:.04em;margin-bottom:1rem;}
+.social-icons{display:flex;gap:8px;}
+.si{width:34px;height:34px;border-radius:var(--r);border:1px solid var(--border);background:transparent;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .2s;flex-shrink:0;}
+.si:hover{transform:translateY(-2px);}
+.si.github:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.06);}
+.si.linkedin:hover{border-color:rgba(10,102,194,.6);background:rgba(10,102,194,.12);}
+.si.youtube:hover{border-color:rgba(255,0,0,.5);background:rgba(255,0,0,.1);}
+.si svg{width:16px;height:16px;fill:var(--muted2);transition:fill .2s;}
+.si.github:hover svg{fill:#fff;}
+.si.linkedin:hover svg{fill:#0a66c2;}
+.si.youtube:hover svg{fill:#ff0000;}
+
+main{margin-left:var(--nav-w);flex:1;min-width:0;}
+.sec{padding:6rem 3rem;border-bottom:1px solid var(--border);}
+.sec:last-child{border-bottom:none;}
+.sec-inner{max-width:900px;}
+
+.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.eyebrow::before{content:'';display:inline-block;width:16px;height:1px;background:var(--accent);}
+h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text);margin-bottom:8px;}
+.sub{font-size:13px;color:var(--muted2);margin-bottom:3.5rem;max-width:580px;}
+
+.badge{display:inline-flex;align-items:center;font-size:10px;padding:3px 9px;border-radius:4px;font-weight:500;}
+.b-blue{background:rgba(56,189,248,.1);color:var(--accent);border:1px solid rgba(56,189,248,.2);}
+.b-green{background:rgba(52,211,153,.1);color:var(--accent2);border:1px solid rgba(52,211,153,.2);}
+.b-yellow{background:rgba(251,191,36,.1);color:var(--accent3);border:1px solid rgba(251,191,36,.2);}
+.b-red{background:rgba(248,113,113,.1);color:var(--accent4);border:1px solid rgba(248,113,113,.2);}
+
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:var(--r);font-size:12px;font-family:var(--font-mono);font-weight:500;text-decoration:none;transition:all .18s;cursor:pointer;border:none;}
+.btn-fill{background:var(--accent);color:#080a0f;}
+.btn-fill:hover{filter:brightness(1.12);transform:translateY(-1px);}
+.btn-ghost{background:transparent;color:var(--muted2);border:1px solid var(--border-h);}
+.btn-ghost:hover{color:var(--text);border-color:var(--accent);transform:translateY(-1px);}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
+#hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(56,189,248,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,0.04) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%);pointer-events:none;}
+#hero::after{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(56,189,248,0.07) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-60%);pointer-events:none;animation:glow 4s ease-in-out infinite;}
+.hero-inner{position:relative;z-index:1;max-width:860px;padding:0 3rem;}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted2);margin-bottom:1.25rem;animation:fadeUp .6s .1s both;}
+.hero-eyebrow::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent);}
+h1{font-family:var(--font-ui);font-size:clamp(2.6rem,5vw,4.2rem);font-weight:800;line-height:1.05;color:var(--text);margin-bottom:4px;animation:fadeUp .6s .2s both;}
+.h1-accent{color:transparent;display:block;background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 50%,var(--accent) 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;animation:fadeUp .6s .25s both,gradMove 4s linear infinite;}
+.hero-role{font-family:var(--font-ui);font-size:1rem;font-weight:600;color:var(--muted2);margin-bottom:1.5rem;animation:fadeUp .6s .3s both;}
+.hero-desc{font-size:13px;color:var(--muted2);max-width:500px;margin-bottom:2rem;line-height:1.85;animation:fadeUp .6s .35s both;}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:2.5rem;animation:fadeUp .6s .4s both;}
+.stats{display:flex;gap:2.5rem;margin-bottom:2.5rem;animation:fadeUp .6s .45s both;}
+.stat-item{display:flex;flex-direction:column;position:relative;}
+.stat-item::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent);border-radius:1px;transition:width .4s ease;}
+.stat-item:hover::after{width:100%;}
+.stat-n{font-family:var(--font-ui);font-size:1.7rem;font-weight:800;color:var(--accent);line-height:1;}
+.stat-l{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:3px;}
+.terminal{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;max-width:460px;animation:fadeUp .6s .5s both;transition:border-color .3s,transform .3s;}
+.terminal:hover{border-color:rgba(56,189,248,.3);transform:translateY(-2px);}
+.tbar{background:var(--bg3);padding:8px 14px;display:flex;align-items:center;gap:7px;border-bottom:1px solid var(--border);}
+.td{width:9px;height:9px;border-radius:50%;}
+.td:nth-child(1){background:#f87171;}.td:nth-child(2){background:#fbbf24;}.td:nth-child(3){background:#34d399;}
+.ttitle{margin:0 auto;font-size:10px;color:var(--muted);}
+.tbody{padding:1rem 1.25rem;line-height:2.1;font-size:12px;}
+.tp{color:var(--accent2);}.tk{color:var(--accent3);}.tv{color:var(--accent);}.tc{color:var(--muted);}
+.scan-line{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(56,189,248,.3),transparent);animation:scanline 8s linear infinite;pointer-events:none;z-index:0;}
+
+/* PROFIL */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.75rem 2rem;transition:border-color .2s,transform .2s;}
+.card:hover{border-color:rgba(56,189,248,.25);transform:translateY(-2px);}
+.card-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:1rem;}
+.ir{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--border);font-size:12px;gap:.75rem;}
+.ir:last-child{border-bottom:none;}
+.il{color:var(--muted2);flex-shrink:0;}.iv{color:var(--text);text-align:right;}
+
+/* TAGS GROUPÉS */
+.tg-group{border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:10px;}
+.tg-label{display:flex;align-items:center;gap:6px;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);margin-bottom:7px;font-weight:500;}
+.tg-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.tg-row{display:flex;flex-wrap:wrap;gap:5px;}
+.tg{font-size:11px;padding:3px 10px;border-radius:20px;background:var(--bg3);color:var(--muted2);border:1px solid var(--border);transition:border-color .2s,color .2s;}
+.tg:hover{border-color:var(--border-h);color:var(--text);}
+.tg-cert{background:rgba(248,113,113,.08);color:var(--accent4);border-color:rgba(248,113,113,.2);}
+
+/* TABLEAU COMPETENCES */
+.ctab-wrap{overflow-x:auto;border-radius:var(--r-lg);border:1px solid var(--border);}
+.ctab{width:100%;border-collapse:collapse;font-size:12px;}
+.ctab thead th{background:var(--bg3);color:var(--muted2);text-align:left;padding:10px 14px;font-size:10px;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border);font-weight:500;}
+.ctab tbody td{padding:9px 14px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:middle;line-height:1.4;}
+.ctab tbody tr:last-child td{border-bottom:none;}
+.ctab tbody tr:not(.ctab-sep):hover td{background:var(--bg3);}
+.ctab tbody tr:not(.ctab-sep) td:first-child{color:var(--accent);font-weight:600;font-size:11px;}
+.ctab-sep td{background:var(--bg3);color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.1em;padding:7px 14px;border-bottom:1px solid var(--border);font-weight:500;}
+.ctab-center{text-align:center;}
+.cs-ok{display:inline-flex;align-items:center;justify-content:center;font-size:10px;padding:2px 10px;border-radius:20px;background:rgba(52,211,153,.1);color:var(--accent2);border:1px solid rgba(52,211,153,.25);font-weight:500;}
+.cs-wip{display:inline-flex;align-items:center;justify-content:center;font-size:10px;padding:2px 10px;border-radius:20px;background:rgba(251,191,36,.08);color:var(--accent3);border:1px solid rgba(251,191,36,.2);font-weight:500;}
+
+/* PROJETS */
+.proj-section{padding:6rem 3rem;border-bottom:1px solid var(--border);}
+.proj-block{margin-bottom:5rem;}
+.proj-block:last-child{margin-bottom:0;}
+.proj-block-head{display:flex;align-items:baseline;gap:14px;font-family:var(--font-ui);font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:1.75rem;padding-bottom:16px;border-bottom:1px solid var(--border);}
+.proj-block-head small{font-size:11px;color:var(--muted2);font-family:var(--font-mono);font-weight:400;}
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.5rem;}
+.fb{font-size:11px;padding:4px 13px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted2);cursor:pointer;font-family:var(--font-mono);transition:all .18s;}
+.fb:hover{border-color:var(--border-h);color:var(--text);}
+.fb.on{background:rgba(56,189,248,.1);border-color:rgba(56,189,248,.35);color:var(--accent);}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.75rem;}
+.pc{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s,transform .25s,box-shadow .25s;}
+.pc:hover{border-color:rgba(56,189,248,.4);transform:translateY(-4px);box-shadow:0 12px 40px rgba(56,189,248,.07);}
+.pc.hid{display:none;}
+.pc-placeholder{width:100%;height:150px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:2.5rem;border-bottom:1px solid var(--border);transition:background .25s;}
+.pc:hover .pc-placeholder{background:var(--bg4);}
+.pc-body{padding:1.5rem 1.5rem;flex:1;display:flex;flex-direction:column;}
+.pc-title{font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.pc-desc{font-size:12px;color:var(--muted2);margin-bottom:1rem;line-height:1.7;flex:1;}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem;}
+.tag{font-size:10px;padding:2px 8px;border-radius:3px;background:var(--bg4);color:var(--muted2);border:1px solid var(--border);}
+.pc-links{display:flex;gap:7px;flex-wrap:wrap;padding-top:.9rem;border-top:1px solid var(--border);}
+.pl{font-size:11px;padding:5px 12px;border-radius:var(--r);text-decoration:none;transition:all .18s;border:1px solid var(--border);color:var(--muted2);}
+.pl:hover{color:var(--text);border-color:var(--border-h);}
+.pl.pri{background:rgba(56,189,248,.1);border-color:rgba(56,189,248,.3);color:var(--accent);}
+.pl.pri:hover{background:rgba(56,189,248,.18);}
+.pc-ghost{border-style:dashed;opacity:.45;}
+
+/* TABLEAU SYNTHESE */
+.tw{overflow-x:auto;border-radius:var(--r-lg);border:1px solid var(--border);}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{background:var(--bg3);color:var(--muted2);text-align:left;padding:11px 14px;font-size:10px;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border);font-weight:500;}
+tbody td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top;line-height:1.5;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr{transition:background .15s;}
+tbody tr:hover td{background:var(--bg3);}
+td:first-child{color:var(--accent);font-weight:500;}
+
+/* TIMELINE */
+.tl{position:relative;padding-left:2rem;}
+.tl::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:1px;background:linear-gradient(to bottom,var(--accent),transparent);}
+.tli{position:relative;margin-bottom:3.5rem;}
+.tli::before{content:'';position:absolute;left:-2rem;top:10px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 0 3px rgba(56,189,248,.2);transform:translateX(-4px);transition:box-shadow .2s;}
+.tli:hover::before{box-shadow:0 0 0 6px rgba(56,189,248,.15);}
+.tl-date{font-size:11px;color:var(--muted);margin-bottom:8px;}
+.sc{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:2rem;transition:border-color .2s;}
+.sc:hover{border-color:var(--border-h);}
+.sc-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.75rem;flex-wrap:wrap;gap:8px;}
+.sc-title{font-family:var(--font-ui);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:3px;}
+.sc-co{color:var(--accent);font-size:12px;}
+.sc ul{list-style:none;margin-top:.75rem;}
+.sc li{font-size:12px;color:var(--muted2);padding:4px 0 4px 18px;position:relative;border-bottom:1px solid var(--border);}
+.sc li:last-child{border-bottom:none;}
+.sc li::before{content:'›';position:absolute;left:0;color:var(--accent2);font-size:16px;line-height:1.2;}
+.sc-comp{display:flex;flex-wrap:wrap;gap:5px;margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--border);}
+
+/* VEILLE */
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.75rem;}
+.vc{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.75rem;transition:border-color .2s,transform .2s;position:relative;overflow:hidden;}
+.vc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .3s ease;}
+.vc:hover{border-color:var(--border-h);transform:translateY(-2px);}
+.vc:hover::before{transform:scaleX(1);}
+.vc-cat{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:7px;}
+.vc-title{font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--text);margin-bottom:7px;}
+.vc-desc{font-size:12px;color:var(--muted2);margin-bottom:.9rem;line-height:1.7;}
+.vc-foot{display:flex;justify-content:space-between;align-items:center;padding-top:9px;border-top:1px solid var(--border);}
+.vc-src{font-size:11px;color:var(--muted);}
+
+/* CONTACT */
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;}
+.ci{display:flex;align-items:center;gap:16px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem 2rem;transition:border-color .2s,transform .2s;text-decoration:none;}
+.ci:hover{border-color:rgba(56,189,248,.35);transform:translateY(-2px);}
+.ci-ico{width:42px;height:42px;border-radius:var(--r);background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.18);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;transition:transform .2s;}
+.ci:hover .ci-ico{transform:scale(1.1);}
+.ci-l{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:3px;}
+.ci-v{font-size:13px;color:var(--text);}
+
+/* ══ MOBILE TOPBAR ══ */
+.mobile-topbar{
+  display:none;
+  position:fixed;top:0;left:0;right:0;z-index:9000;
+  height:52px;background:rgba(8,10,15,.98);
+  border-bottom:1px solid var(--border);
+  align-items:center;justify-content:space-between;
+  padding:0 1.25rem;
+  -webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);
+  will-change:transform;
+}
+.mobile-brand{font-family:var(--font-ui);font-size:.95rem;font-weight:800;color:var(--text);}
+.mobile-brand span{color:var(--accent);}
+/* ── CHECKBOX HACK (100% CSS, marche sur iOS local) ── */
+#menu-toggle{display:none;}
+.hamburger{
+  width:44px;height:44px;border-radius:var(--r);border:1px solid var(--border);
+  background:transparent;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  transition:border-color .2s;
+  -webkit-tap-highlight-color:transparent;
+  position:relative;z-index:9001;
+  -webkit-user-select:none;user-select:none;
+}
+.hamburger:hover{border-color:var(--accent);}
+.hamburger .hb{display:block;width:18px;height:2px;background:var(--muted2);border-radius:2px;transition:all .3s;}
+/* État ouvert via checkbox */
+#menu-toggle:checked ~ .mobile-drawer{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);}
+#menu-toggle:checked ~ .mobile-overlay{opacity:1;pointer-events:all;display:block;}
+#menu-toggle:checked + .mobile-topbar .hamburger{border-color:var(--accent);}
+#menu-toggle:checked + .mobile-topbar .hamburger .hb:nth-child(1){-webkit-transform:translateY(7px) rotate(45deg);transform:translateY(7px) rotate(45deg);background:var(--accent);}
+#menu-toggle:checked + .mobile-topbar .hamburger .hb:nth-child(2){opacity:0;-webkit-transform:scaleX(0);transform:scaleX(0);}
+#menu-toggle:checked + .mobile-topbar .hamburger .hb:nth-child(3){-webkit-transform:translateY(-7px) rotate(-45deg);transform:translateY(-7px) rotate(-45deg);background:var(--accent);}
+
+/* ══ MOBILE DRAWER ══ */
+.mobile-drawer{
+  display:none;
+  position:fixed;top:0;right:0;bottom:0;width:75%;max-width:280px;z-index:8999;
+  background:var(--bg2);border-left:1px solid var(--border);
+  flex-direction:column;padding:1.25rem;padding-top:64px;overflow-y:auto;
+  -webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0);
+  -webkit-transition:-webkit-transform .3s cubic-bezier(.4,0,.2,1);
+  transition:transform .3s cubic-bezier(.4,0,.2,1);
+  -webkit-overflow-scrolling:touch;
+  will-change:transform;
+}
+.mobile-drawer.open{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);}
+
+.mobile-overlay{
+  display:none;
+  position:fixed;top:0;left:0;width:100%;height:100%;z-index:8997;
+  background:rgba(0,0,0,.55);
+  opacity:0;
+  -webkit-transition:opacity .3s;transition:opacity .3s;
+  pointer-events:none;
+  -webkit-tap-highlight-color:transparent;
+  cursor:pointer;
+  -webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);
+}
+.mobile-overlay.open{opacity:1;pointer-events:all;}
+#menu-toggle:checked ~ .mobile-overlay{opacity:1;pointer-events:all;display:block;}
+
+@media(max-width:860px){
+  :root{--nav-w:0px;}
+  aside{display:none;}
+  main{margin-left:0;padding-top:52px;}
+  .mobile-topbar{display:flex;}
+  .mobile-drawer{display:flex;}
+  .mobile-overlay{display:block;}
+
+  /* Sections — padding réduit */
+  .sec{padding:3rem 1.25rem;}
+  .proj-section{padding:3rem 1.25rem;}
+  .sec-inner{max-width:100%;}
+
+  /* Hero — plus compact, pas plein écran */
+  #hero{min-height:auto;padding-top:2rem;padding-bottom:2rem;}
+  .hero-inner{padding:0 1.1rem;}
+  h1{font-size:2rem;margin-bottom:2px;}
+  .hero-role{font-size:.85rem;margin-bottom:1rem;}
+  .hero-desc{font-size:12px;margin-bottom:1.25rem;}
+  .cta-row{gap:8px;margin-bottom:1.5rem;}
+  .btn{padding:8px 14px;font-size:11px;}
+  .stats{gap:1.25rem;margin-bottom:1.5rem;}
+  .stat-n{font-size:1.3rem;}
+  .stat-l{font-size:9px;}
+  .terminal{max-width:100%;margin-top:1.5rem;}
+  .tbody{padding:.75rem 1rem;font-size:11px;}
+
+  /* Grilles */
+  .grid2,.cgrid{grid-template-columns:1fr;}
+  .pgrid{grid-template-columns:1fr;}
+  .vgrid{grid-template-columns:1fr;}
+  .comp-grid{grid-template-columns:1fr;}
+
+  /* Titres */
+  h2{font-size:1.5rem;}
+  .sub{font-size:12px;margin-bottom:1.5rem;}
+  .eyebrow{margin-bottom:4px;}
+
+  /* Cards */
+  .card{padding:1rem;}
+  .ir{font-size:11px;padding:5px 0;}
+
+  /* Tableau compétences */
+  .ctab{font-size:11px;}
+  .ctab thead th{padding:8px 10px;}
+  .ctab tbody td{padding:7px 10px;}
+
+  /* Tableau synthèse */
+  table{font-size:11px;}
+  thead th{padding:8px 10px;}
+  tbody td{padding:7px 10px;}
+
+  /* Projets */
+  .proj-block-head{font-size:.95rem;}
+  .pc-placeholder{height:110px;font-size:2rem;}
+  .pc-body{padding:1rem;}
+  .pc-title{font-size:13px;}
+  .pc-desc{font-size:11px;}
+
+  /* Timeline */
+  .tl{padding-left:1.5rem;}
+  .tli::before{left:-1.5rem;}
+  .sc{padding:1rem;}
+  .sc-title{font-size:.9rem;}
+  .sc li{font-size:11px;}
+
+  /* Veille */
+  .vc{padding:1rem;}
+  .vc-title{font-size:13px;}
+  .vc-desc{font-size:11px;}
+
+  /* Contact */
+  .ci{padding:1rem;}
+  .ci-ico{width:36px;height:36px;font-size:16px;}
+  .ci-v{font-size:12px;}
+
+  /* Scan line off on mobile */
+  .scan-line{display:none;}
+
+  /* FIX iOS : désactiver reveal */
+  .reveal{opacity:1 !important;transform:none !important;transition:none !important;}
+
+  /* Cacher tableau synthèse E5 sur mobile (trop dense) */
+  #synthese{display:none;}
+  /* Certifications 1 colonne */
+  .cert-grid{grid-template-columns:1fr;}
+  .cert-header{flex-wrap:nowrap;}
+
+  /* Renuméroter visuellement — cacher eyebrow sur synthese */
+  #experiences .eyebrow::before,#veille .eyebrow::before,#contact .eyebrow::before{content:'';}
+}
+
+/* ══ FORMULAIRE CONTACT HACKER ══ */
+.contact-wrap{display:block;max-width:620px;}
+.contact-info{display:flex;flex-direction:column;gap:1rem;}
+.contact-info-item{
+  display:flex;align-items:center;gap:12px;
+  padding:.9rem 1rem;background:#020a02;
+  border:1px solid #1a3a1a;border-radius:var(--r-lg);
+  font-size:12px;text-decoration:none;transition:border-color .2s;
+}
+.contact-info-item:hover{border-color:#00cc33;}
+.ci-ico-g{width:34px;height:34px;border-radius:var(--r);background:rgba(0,255,65,.07);border:1px solid #1a3a1a;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+.ci-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#2d6a2d;margin-bottom:2px;}
+.ci-val{color:#00cc33;}
+
+/* Terminal form */
+.contact-terminal{background:#020a02;border:1px solid #1a3a1a;border-radius:var(--r-lg);overflow:hidden;}
+.cf-bar{background:#041504;padding:8px 14px;display:flex;align-items:center;gap:7px;border-bottom:1px solid #1a3a1a;}
+.cf-dot{width:9px;height:9px;border-radius:50%;}
+.cf-dot:nth-child(1){background:#3a1a1a;}.cf-dot:nth-child(2){background:#3a3a1a;}.cf-dot:nth-child(3){background:#1a3a1a;}
+.cf-title{margin:0 auto;font-size:10px;color:#2d6a2d;letter-spacing:.1em;}
+.cf-body{padding:1.5rem;}
+.cf-line{display:flex;align-items:center;gap:8px;margin-bottom:1.1rem;font-size:12px;}
+.cf-prompt{color:#00ff41;white-space:nowrap;font-size:11px;}
+.cf-field{
+  flex:1;background:transparent;border:none;border-bottom:1px solid #1a3a1a;
+  color:#00cc33;font-family:var(--font-mono);font-size:12px;
+  padding:4px 0;outline:none;
+  caret-color:#00ff41;
+  transition:border-color .2s;
+}
+.cf-field:focus{border-bottom-color:#00ff41;}
+.cf-field::placeholder{color:#1a4a1a;}
+.cf-field-area{
+  flex:1;background:transparent;border:1px solid #1a3a1a;
+  color:#00cc33;font-family:var(--font-mono);font-size:12px;
+  padding:8px;outline:none;border-radius:6px;
+  min-height:90px;resize:vertical;
+  caret-color:#00ff41;transition:border-color .2s;
+}
+.cf-field-area:focus{border-color:#00ff41;}
+.cf-field-area::placeholder{color:#1a4a1a;}
+.cf-submit{
+  display:flex;align-items:center;justify-content:flex-end;gap:10px;
+  margin-top:1.25rem;padding-top:1rem;border-top:1px solid #0d1f0d;
+}
+.cf-status{font-size:11px;color:#2d6a2d;}
+.cf-btn{
+  background:rgba(0,255,65,.08);border:1px solid rgba(0,255,65,.3);
+  color:#00ff41;font-family:var(--font-mono);font-size:12px;
+  padding:8px 20px;border-radius:var(--r);cursor:pointer;
+  transition:all .2s;
+}
+.cf-btn:hover{background:rgba(0,255,65,.15);border-color:#00ff41;}
+.cf-btn:active{transform:scale(.97);}
+
+@media(max-width:860px){
+  .contact-wrap{grid-template-columns:1fr;}
+}
+
+/* ══ XP VERTICAL ══ */
+.xp-vertical{
+  display:flex;flex-direction:column;gap:0;
+  position:relative;max-width:720px;margin:0 auto;
+}
+.xp-vertical::before{
+  content:'';position:absolute;
+  left:50%;top:10px;bottom:10px;
+  width:2px;
+  background:linear-gradient(to bottom,var(--accent2) 0%,var(--accent) 75%,var(--bg4) 100%);
+  transform:translateX(-50%);border-radius:1px;
+}
+.xp-v-item{
+  display:grid;grid-template-columns:1fr 40px 1fr;
+  align-items:start;margin-bottom:2.75rem;
+}
+.xp-v-item:last-child{margin-bottom:0;}
+.xp-v-left{text-align:right;padding-right:1.75rem;padding-top:2px;}
+.xp-v-center{display:flex;justify-content:center;padding-top:2px;position:relative;z-index:1;}
+.xp-v-right{padding-left:1.75rem;padding-top:2px;}
+.xp-v-dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--bg);flex-shrink:0;}
+.xp-v-dot-past{background:var(--muted);}
+.xp-v-dot-active{background:var(--accent);box-shadow:0 0 0 4px rgba(56,189,248,.2),0 0 10px rgba(56,189,248,.35);animation:pulse-ring 2s infinite;}
+.xp-v-dot-future{background:var(--bg3);border:2px solid var(--border-h);}
+.xp-v-date{font-size:10px;color:var(--muted);letter-spacing:.04em;margin-bottom:3px;}
+.xp-v-title{font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--text);margin-bottom:2px;}
+.xp-v-place{font-size:11px;color:var(--accent);margin-bottom:7px;}
+.xp-v-tags{display:flex;flex-wrap:wrap;gap:4px;}
+.xp-v-tags-right{justify-content:flex-end;}
+.xp-tag{font-size:10px;padding:2px 8px;border-radius:20px;background:var(--bg4);color:var(--muted2);border:1px solid var(--border);}
+.xp-tag-blue{background:rgba(56,189,248,.1);color:var(--accent);border-color:rgba(56,189,248,.25);}
+.xp-tag-green{background:rgba(52,211,153,.1);color:var(--accent2);border-color:rgba(52,211,153,.25);}
+
+@media(max-width:860px){
+  .xp-vertical::before{left:7px;transform:none;}
+  .xp-v-item{grid-template-columns:20px 1fr;margin-bottom:1.5rem;}
+  .xp-v-left{display:none;}
+  .xp-v-center{justify-content:flex-start;}
+  .xp-v-right{padding-left:.9rem;}
+  .xp-v-tags-right{justify-content:flex-start;}
+}
+
+/* ══ PROFIL HACKER ══ */
+@keyframes typewriter{from{width:0}to{width:100%}}
+@keyframes cursor{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes matrix-rain{0%{opacity:0;transform:translateY(-10px)}10%{opacity:1}90%{opacity:.6}100%{opacity:0;transform:translateY(8px)}}
+@keyframes glitch{0%,100%{text-shadow:none}92%{text-shadow:none}93%{text-shadow:-2px 0 #0f0,2px 0 #0f0}94%{text-shadow:none}96%{text-shadow:2px 0 #0f0}97%{text-shadow:none}}
+@keyframes scanG{from{transform:translateY(-100%)}to{transform:translateY(100%)}}
+
+.hacker-profile{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;
+}
+/* Terminal principal */
+.hacker-terminal{
+  background:#020a02;border:1px solid #1a3a1a;border-radius:var(--r-lg);
+  overflow:hidden;position:relative;
+  grid-column:1/-1;
+}
+.hacker-terminal::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,#00ff41,transparent);
+  animation:scanG 4s linear infinite;pointer-events:none;opacity:.4;
+}
+.ht-bar{
+  background:#041504;padding:9px 14px;
+  display:flex;align-items:center;gap:8px;
+  border-bottom:1px solid #1a3a1a;
+}
+.ht-dot{width:9px;height:9px;border-radius:50%;}
+.ht-dot:nth-child(1){background:#3a1a1a;}.ht-dot:nth-child(2){background:#3a3a1a;}.ht-dot:nth-child(3){background:#1a3a1a;}
+.ht-title{margin:0 auto;font-size:10px;color:#2d6a2d;letter-spacing:.1em;}
+.ht-body{padding:1.75rem 2rem;font-size:12px;line-height:2.4;font-family:var(--font-mono);}
+.ht-line{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;}
+.ht-prompt{color:#00ff41;font-size:11px;}
+.ht-cmd{color:#7fff7f;}
+.ht-out{color:#00cc33;}
+.ht-key{color:#33ff33;font-weight:500;}
+.ht-val{color:#00ff88;}
+.ht-comment{color:#2a6a2a;font-size:11px;}
+.ht-error{color:#ff4444;}
+.ht-cursor{display:inline-block;width:8px;height:13px;background:#00ff41;animation:cursor 1s infinite;vertical-align:text-bottom;margin-left:2px;}
+
+/* Cards info compactes */
+.hacker-card{
+  background:#020a02;border:1px solid #1a3a1a;border-radius:var(--r-lg);
+  padding:1.5rem 1.75rem;position:relative;overflow:hidden;
+}
+.hacker-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,#00ff41,#00cc33,transparent);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s ease;
+}
+.hacker-card:hover::after{transform:scaleX(1);}
+.hc-title{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#2d6a2d;margin-bottom:.9rem;display:flex;align-items:center;gap:6px;}
+.hc-title::before{content:'[';color:#00ff41;}.hc-title::after{content:']';color:#00ff41;}
+.hc-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid #0d1f0d;font-size:11.5px;gap:.5rem;}
+.hc-row:last-child{border-bottom:none;}
+.hc-k{color:#2d6a2d;flex-shrink:0;font-size:11px;}
+.hc-v{color:#00cc33;text-align:right;}
+.hc-v a{color:#00ff88;text-decoration:none;}
+.hc-v a:hover{color:#00ff41;}
+
+/* Tags hacker style */
+.hacker-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:.75rem;}
+.htag{font-size:10px;padding:2px 10px;border-radius:3px;background:rgba(0,255,65,.06);color:#00cc33;border:1px solid rgba(0,255,65,.2);font-family:var(--font-mono);}
+.htag:hover{background:rgba(0,255,65,.12);border-color:rgba(0,255,65,.4);}
+
+/* Responsive */
+@media(max-width:860px){
+  .hacker-profile{grid-template-columns:1fr;}
+  .hacker-terminal{grid-column:1;}
+}
+
+/* CERTIFICATIONS */
+
+.cert-issuer{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent4);margin-bottom:4px;font-weight:600;}
+.cert-name{font-family:var(--font-ui);font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:.6rem;}
+.cert-desc{font-size:12px;color:var(--muted2);line-height:1.7;margin-bottom:.9rem;}
+.cert-meta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:.75rem;font-size:11px;color:var(--muted2);}
+.cert-date{display:flex;align-items:center;gap:4px;}
+.cert-id{font-family:var(--font-mono);color:var(--muted);font-size:10px;}
+.cert-tags{display:flex;flex-wrap:wrap;gap:5px;}
+
+/* CERTIFICATIONS */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.75rem;}
+.cert-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:2rem;transition:border-color .2s,transform .2s;position:relative;overflow:hidden;min-width:0;}
+.cert-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent4),var(--accent3));transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
+.cert-card:hover{border-color:rgba(248,113,113,.35);transform:translateY(-3px);}
+.cert-card:hover::before{transform:scaleX(1);}
+.cert-card-ghost{border-style:dashed;opacity:.45;}
+.cert-card-ghost:hover{border-color:var(--border-h);transform:none;}
+.cert-card-ghost::before{display:none;}
+.cert-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:1rem;flex-wrap:wrap;}
+.cert-logo{font-size:1.75rem;width:48px;height:48px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.cert-header-info{flex:1;min-width:0;}
+.cert-name{font-family:var(--font-ui);font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;word-break:break-word;}
+.cert-issuer{font-size:11px;color:var(--accent4);text-transform:uppercase;letter-spacing:.06em;}
+.cert-btn{font-size:11px;padding:5px 12px;border-radius:var(--r);background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.25);color:var(--accent4);text-decoration:none;transition:all .18s;display:inline-flex;align-items:center;margin-top:8px;}
+.cert-btn:hover{background:rgba(248,113,113,.2);}
+.cert-meta{display:flex;gap:1rem;margin-bottom:1rem;padding:.9rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.cert-meta-item{display:flex;flex-direction:column;gap:2px;min-width:0;}
+.cert-meta-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
+.cert-meta-val{font-size:12px;color:var(--text);word-break:break-all;}
+.cert-desc{font-size:12px;color:var(--muted2);line-height:1.7;margin-bottom:1rem;}
+.cert-tags{display:flex;flex-wrap:wrap;gap:5px;}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<aside>
+  <div class="aside-name">Mathis <span>Villain</span></div>
+  <div class="aside-sub">BTS SIO · SISR · Nexa Digital School</div>
+  <div class="aside-pill">Recherche alternance 2026</div>
+  <div class="nav-sep">Navigation</div>
+  <nav class="aside-nav">
+    <a href="#hero" id="nav-hero"><span class="nav-ico">⌂</span>Accueil</a>
+    <a href="#profil" id="nav-profil"><span class="nav-ico">◉</span>Profil</a>
+    <a href="#certifications" id="nav-certifications"><span class="nav-ico">◆</span>Certifications</a>
+    <a href="#projets" id="nav-projets"><span class="nav-ico">◫</span>Projets</a>
+    <a href="#projets-scolaires" class="nav-indent" id="nav-projets-scolaires">— Scolaires</a>
+    <a href="#projets-perso" class="nav-indent" id="nav-projets-perso">— Personnels</a>
+    <a href="#projets-pro" class="nav-indent" id="nav-projets-pro">— Professionnels</a>
+    <a href="#experiences" id="nav-experiences"><span class="nav-ico">◷</span>Expériences</a>
+    <a href="#veille" id="nav-veille"><span class="nav-ico">◎</span>Veille techno</a>
+    <a href="#contact" id="nav-contact"><span class="nav-ico">✉</span>Contact</a>
+  </nav>
+  <div class="aside-foot">
+    <div class="aside-foot-session">Session 2025–2027</div>
+    <div class="social-icons">
+      <a href="#" target="_blank" class="si github" title="GitHub">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a href="#" target="_blank" class="si linkedin" title="LinkedIn">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="#" target="_blank" class="si youtube" title="YouTube">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+      </a>
+    </div>
+  </div>
+</aside>
+
+<main>
+
+<section class="sec" id="hero" style="padding:0;border-bottom:1px solid var(--border);">
+  <div class="scan-line"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Portfolio professionnel · BTS SIO SISR · Session 2027</div>
+    <h1>Mathis<span class="h1-accent">Villain</span></h1>
+    <div class="hero-role">Technicien Systèmes &amp; Réseaux — Nexa Digital School</div>
+    <p class="hero-desc">En réorientation vers les métiers de l'informatique, passionné par les réseaux, la virtualisation et la cybersécurité. Je cherche une alternance pour progresser aux côtés de professionnels et mettre en pratique mes apprentissages.</p>
+    <div class="cta-row">
+      <a href="#projets" class="btn btn-fill">Voir mes projets →</a>
+      <a href="#contact" class="btn btn-ghost">Me contacter</a>
+    </div>
+    <div class="stats">
+      <div class="stat-item"><div class="stat-n">3+</div><div class="stat-l">Projets</div></div>
+      <div class="stat-item"><div class="stat-n">2</div><div class="stat-l">Expériences</div></div>
+      <div class="stat-item"><div class="stat-n">4</div><div class="stat-l">Veilles techno</div></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sec" id="profil">
+  <div class="sec-inner">
+    <div class="eyebrow reveal">01 — Identité</div>
+    <h2 class="reveal">Mon profil</h2>
+    <p class="sub reveal">Étudiant BTS SIO SISR en recherche d'alternance — passionné par les systèmes, les réseaux et la cybersécurité.</p>
+
+    <div class="hacker-profile reveal">
+
+      <!-- Terminal principal -->
+      <div class="hacker-terminal">
+        <div class="ht-bar">
+          <div class="ht-dot"></div><div class="ht-dot"></div><div class="ht-dot"></div>
+          <span class="ht-title">identity_scan.sh — Mathis Villain</span>
+        </div>
+        <div class="ht-body">
+          <div class="ht-line"><span class="ht-prompt">root@portfolio:~$</span><span class="ht-cmd">./identity_scan.sh --target mathis</span></div>
+          <div class="ht-line"><span class="ht-comment">// scanning target profile...</span></div>
+          <div class="ht-line" style="margin-top:4px">
+            <span class="ht-key">NAME</span><span style="color:#1a4a1a">........</span><span class="ht-val">"Mathis Villain"</span>
+          </div>
+          <div class="ht-line">
+            <span class="ht-key">LOCATION</span><span style="color:#1a4a1a">......</span><span class="ht-val">"Domont, 95330 — Val-d'Oise"</span>
+          </div>
+          <div class="ht-line">
+            <span class="ht-key">FORMATION</span><span style="color:#1a4a1a">.....</span><span class="ht-val">"BTS SIO SISR — Nexa Digital School"</span>
+          </div>
+          <div class="ht-line">
+            <span class="ht-key">SESSION</span><span style="color:#1a4a1a">.......</span><span class="ht-val">"2025 — 2027 (1ère année)"</span>
+          </div>
+          <div class="ht-line">
+            <span class="ht-key">STATUS</span><span style="color:#1a4a1a">.........</span><span class="ht-val" style="color:#00ff41;animation:glitch 6s infinite">"RECHERCHE ALTERNANCE 2026"</span>
+          </div>
+          <div class="ht-line" style="margin-top:6px">
+            <span class="ht-prompt">root@portfolio:~$</span>
+            <span class="ht-cursor"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stack technique -->
+      <div class="hacker-card">
+        <div class="hc-title">stack_technique</div>
+        <div class="hc-row"><span class="hc-k">OS</span><span class="hc-v">Windows · Debian · Ubuntu</span></div>
+        <div class="hc-row"><span class="hc-k">Réseau</span><span class="hc-v">TCP/IP · DNS · DHCP · VLAN · VPN</span></div>
+        <div class="hc-row"><span class="hc-k">Firewall</span><span class="hc-v">pfSense</span></div>
+        <div class="hc-row"><span class="hc-k">Virt.</span><span class="hc-v">VMware · VirtualBox</span></div>
+        <div class="hc-row"><span class="hc-k">AD</span><span class="hc-v">Active Directory · GPO</span></div>
+        <div class="hc-row"><span class="hc-k">Cyber</span><span class="hc-v">Pen-Testing · RGPD</span></div>
+        <div class="hc-row"><span class="hc-k">Script</span><span class="hc-v">Python · Bash (notions)</span></div>
+        <div class="hc-row"><span class="hc-k">Outils</span><span class="hc-v">M365 · G-Workspace · Canva</span></div>
+      </div>
+
+
+
+    </div>
+  </div>
+</section>
+
+
+<section class="sec" id="certifications">
+  <div class="sec-inner">
+    <div class="eyebrow reveal">02 — Certifications</div>
+    <h2 class="reveal">Mes certifications</h2>
+    <p class="sub reveal">Certifications obtenues en dehors de la formation, témoignant d'un investissement personnel dans le domaine de la cybersécurité.</p>
+    <div class="cert-grid">
+
+      <div class="cert-card reveal">
+        <div class="cert-header">
+          <div class="cert-logo">🔐</div>
+          <div>
+            <div class="cert-name">Learning Path — Pre Security</div>
+            <div class="cert-issuer">TryHackMe</div>
+          </div>
+          <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-TJ7DOBE7NU.pdf" target="_blank" class="cert-btn">Voir ↗</a>
+        </div>
+        <div class="cert-meta">
+          <div class="cert-meta-item"><span class="cert-meta-lbl">Date</span><span class="cert-meta-val">6 février 2026</span></div>
+          <div class="cert-meta-item"><span class="cert-meta-lbl">Durée</span><span class="cert-meta-val">7h38 de formation</span></div>
+          <div class="cert-meta-item"><span class="cert-meta-lbl">N° certificat</span><span class="cert-meta-val">THM-TJ7DOBE7NU</span></div>
+        </div>
+        <p class="cert-desc">Apprentissage des fondamentaux de la cybersécurité : notions de réseaux, bases Linux, introduction au pen-testing et aux vulnérabilités courantes (OWASP).</p>
+        <div class="cert-tags">
+          <span class="tg">Pen-Testing</span>
+          <span class="tg">Linux</span>
+          <span class="tg">Réseaux</span>
+          <span class="tg">Cybersécurité</span>
+          <span class="tg">OWASP</span>
+        </div>
+      </div>
+
+      <div class="cert-card cert-card-ghost reveal">
+        <div class="cert-header">
+          <div class="cert-logo" style="opacity:.35">🏅</div>
+          <div>
+            <div class="cert-name">[Prochaine certification]</div>
+            <div class="cert-issuer">À venir</div>
+          </div>
+        </div>
+        <p class="cert-desc" style="opacity:.5">Exemples : TryHackMe Junior Penetration Tester, CompTIA Network+, Cisco CCNA, Google IT Support…</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="proj-section" id="projets">
+  <div class="eyebrow reveal">03 — Réalisations</div>
+  <h2 style="font-family:var(--font-ui);font-size:1.9rem;font-weight:800;color:var(--text);margin-bottom:6px;" class="reveal">Mes projets</h2>
+  <p class="sub reveal">Projets PPE, certifications et travaux professionnels. Chaque fiche comprend les preuves nécessaires à l'épreuve E5.</p>
+
+  <div class="proj-block" id="projets-scolaires">
+    <div class="proj-block-head reveal">Projets Scolaires <small>Nexa Digital School · PPE obligatoires</small></div>
+    <div class="filters" id="fs">
+      <button class="fb on" onclick="filt('s','Tous',this)">Tous</button>
+      <button class="fb" onclick="filt('s','Windows',this)">Windows</button>
+      <button class="fb" onclick="filt('s','Linux',this)">Linux</button>
+      <button class="fb" onclick="filt('s','Réseau',this)">Réseau</button>
+      <button class="fb" onclick="filt('s','Virtualisation',this)">Virtualisation</button>
+    </div>
+    <div class="pgrid" id="gs">
+      <div class="pc reveal" data-t="Windows,Réseau">
+        <div class="pc-placeholder">🖥️</div>
+        <div class="pc-body">
+          <div class="pc-title">[Titre projet PPE 1]</div>
+          <p class="pc-desc">Décris ici ton premier PPE. Ex : configuration d'un serveur Windows, mise en place d'un réseau en salle TP, Active Directory…</p>
+          <div class="tags"><span class="tag">Windows Server</span><span class="tag">Réseau</span><span class="tag">[Outil]</span></div>
+          <div class="pc-links"><a href="#" class="pl pri">En savoir plus</a><span class="badge b-blue" style="align-self:center">PPE 1</span></div>
+        </div>
+      </div>
+      <div class="pc reveal" data-t="Linux,Virtualisation">
+        <div class="pc-placeholder">🐧</div>
+        <div class="pc-body">
+          <div class="pc-title">[Titre projet PPE 2]</div>
+          <p class="pc-desc">Décris ici ton second PPE. Ex : déploiement d'une VM Linux, supervision réseau, script Bash ou PowerShell…</p>
+          <div class="tags"><span class="tag">Linux</span><span class="tag">Virtualisation</span><span class="tag">[Outil]</span></div>
+          <div class="pc-links"><a href="#" class="pl pri">En savoir plus</a><span class="badge b-blue" style="align-self:center">PPE 2</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-block" id="projets-perso">
+    <div class="proj-block-head reveal">Projets Personnels <small>Réalisations hors formation</small></div>
+    <div class="filters" id="fp">
+      <button class="fb on" onclick="filt('p','Tous',this)">Tous</button>
+      <button class="fb" onclick="filt('p','Cybersécurité',this)">Cybersécurité</button>
+    </div>
+    <div class="pgrid" id="gp">
+      <div class="pc pc-ghost" data-t="Divers">
+        <div class="pc-placeholder" style="opacity:.3">➕</div>
+        <div class="pc-body">
+          <div class="pc-title">[Ajouter un projet perso]</div>
+          <p class="pc-desc">Ex : homelab, script d'automatisation, lab cybersécurité, NAS, bot Discord…</p>
+          <div class="tags"><span class="tag">À compléter</span></div>
+          <div class="pc-links"><span style="font-size:11px;color:var(--muted)">— pas encore de lien —</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-block" id="projets-pro">
+    <div class="proj-block-head reveal">Projets Professionnels <small>Stages &amp; alternance</small></div>
+    <div class="pgrid">
+      <div class="pc pc-ghost">
+        <div class="pc-placeholder" style="opacity:.3">🏢</div>
+        <div class="pc-body">
+          <div class="pc-title">[Projet entreprise — à venir]</div>
+          <p class="pc-desc">Ce bloc sera complété lors de ton alternance. Infra, réseau, sécurité, supervision…</p>
+          <div class="tags"><span class="tag">À compléter</span></div>
+          <div class="pc-links"><span style="font-size:11px;color:var(--muted)">— alternance non démarrée —</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="sec" id="experiences">
+  <div class="sec-inner">
+    <div class="eyebrow reveal">04 — Expériences</div>
+    <h2 class="reveal">Parcours</h2>
+    <p class="sub reveal">De la réorientation à la spécialisation en systèmes &amp; réseaux.</p>
+
+    <!-- Barre XP verticale — alternée gauche/droite -->
+    <div class="xp-vertical reveal">
+
+      <!-- 1. Bac -->
+      <div class="xp-v-item">
+        <div class="xp-v-left">
+          <div class="xp-v-date">2023</div>
+          <div class="xp-v-title">Bac Général</div>
+          <div class="xp-v-place">Mention Assez Bien</div>
+          <div class="xp-v-tags xp-v-tags-right"><span class="xp-tag">Maths · NSI · SES</span></div>
+        </div>
+        <div class="xp-v-center"><div class="xp-v-dot xp-v-dot-past"></div></div>
+        <div class="xp-v-right"></div>
+      </div>
+
+      <!-- 2. BTS Immo -->
+      <div class="xp-v-item">
+        <div class="xp-v-left"></div>
+        <div class="xp-v-center"><div class="xp-v-dot xp-v-dot-past"></div></div>
+        <div class="xp-v-right">
+          <div class="xp-v-date">2023 — 2024</div>
+          <div class="xp-v-title">BTS Immobilier</div>
+          <div class="xp-v-place">Lycée Fragonard</div>
+          <div class="xp-v-tags"><span class="xp-tag">Réorientation</span></div>
+        </div>
+      </div>
+
+      <!-- 3. Castorama -->
+      <div class="xp-v-item">
+        <div class="xp-v-left">
+          <div class="xp-v-date">2024 — 2025</div>
+          <div class="xp-v-title">Conseiller de vente</div>
+          <div class="xp-v-place">Castorama</div>
+          <div class="xp-v-tags xp-v-tags-right"><span class="xp-tag">CDD</span><span class="xp-tag">Service client</span></div>
+        </div>
+        <div class="xp-v-center"><div class="xp-v-dot xp-v-dot-past"></div></div>
+        <div class="xp-v-right"></div>
+      </div>
+
+      <!-- 4. BTS SIO — actif -->
+      <div class="xp-v-item">
+        <div class="xp-v-left"></div>
+        <div class="xp-v-center"><div class="xp-v-dot xp-v-dot-active"></div></div>
+        <div class="xp-v-right">
+          <div class="xp-v-date">2025 — 2027</div>
+          <div class="xp-v-title">BTS SIO SISR</div>
+          <div class="xp-v-place">Nexa Digital School</div>
+          <div class="xp-v-tags"><span class="xp-tag xp-tag-blue">En cours</span><span class="xp-tag">Systèmes &amp; Réseaux</span></div>
+        </div>
+      </div>
+
+      <!-- 5. Alternance — futur -->
+      <div class="xp-v-item">
+        <div class="xp-v-left">
+          <div class="xp-v-date">2026</div>
+          <div class="xp-v-title" style="opacity:.6">Alternance</div>
+          <div class="xp-v-place" style="opacity:.6">Entreprise à confirmer</div>
+          <div class="xp-v-tags xp-v-tags-right"><span class="xp-tag xp-tag-green">Recherche active</span></div>
+        </div>
+        <div class="xp-v-center"><div class="xp-v-dot xp-v-dot-future"></div></div>
+        <div class="xp-v-right"></div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="sec" id="veille">
+  <div class="sec-inner">
+    <div class="eyebrow reveal">05 — Veille technologique</div>
+    <h2 class="reveal">Veille techno</h2>
+    <p class="sub reveal">Épreuve obligatoire BTS SIO — minimum 3 veilles sur des sujets liés à l'infra, la sécurité ou les systèmes.</p>
+    <div class="vgrid">
+      <div class="vc reveal">
+        <div class="vc-cat">Cybersécurité</div>
+        <div class="vc-title">Les ransomwares en 2025</div>
+        <p class="vc-desc">Évolution des ransomwares (LockBit, ALPHV), vecteurs d'attaque principaux (phishing, RDP exposé) et bonnes pratiques : segmentation réseau, MFA, sauvegardes offline.</p>
+        <div class="vc-foot"><span class="vc-src">ANSSI · CERT-FR · Bleeping Computer</span><span class="badge b-red">Sécurité</span></div>
+      </div>
+      <div class="vc reveal">
+        <div class="vc-cat">Virtualisation</div>
+        <div class="vc-title">Docker &amp; Kubernetes en entreprise</div>
+        <p class="vc-desc">Adoption des conteneurs : portabilité, isolation, comparaison avec la virtualisation classique (VMware/VirtualBox), cas d'usage et tendances DevOps.</p>
+        <div class="vc-foot"><span class="vc-src">Docker Blog · Red Hat · CNCF</span><span class="badge b-blue">Infra</span></div>
+      </div>
+      <div class="vc reveal">
+        <div class="vc-cat">Réseaux &amp; Sécurité</div>
+        <div class="vc-title">Zero Trust Network Access</div>
+        <p class="vc-desc">Modèle ZTNA (ne jamais faire confiance, toujours vérifier) : comparaison avec le VPN traditionnel et implications pour l'architecture réseau en entreprise.</p>
+        <div class="vc-foot"><span class="vc-src">Cloudflare · Gartner · Cisco</span><span class="badge b-green">Réseau</span></div>
+      </div>
+      <div class="vc reveal">
+        <div class="vc-cat">Réglementation</div>
+        <div class="vc-title">Directive NIS2 — nouvelles obligations</div>
+        <p class="vc-desc">NIS2 transposée en droit français : entités concernées, nouvelles obligations (signalement incidents, audits, formations), sanctions et impact pour les équipes IT.</p>
+        <div class="vc-foot"><span class="vc-src">ANSSI · EUR-Lex</span><span class="badge b-yellow">Réglementaire</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact">
+  <div class="sec-inner">
+    <div class="eyebrow reveal">06 — Contact</div>
+    <h2 class="reveal">Me contacter</h2>
+    <!-- Terminal formulaire -->
+      <div class="contact-terminal">
+        <div class="cf-bar">
+          <div class="cf-dot"></div><div class="cf-dot"></div><div class="cf-dot"></div>
+          <span class="cf-title">send_message.sh</span>
+        </div>
+        <div class="cf-body">
+          <div class="cf-line">
+            <span class="cf-prompt">root@portfolio:~$</span>
+            <span style="color:#7fff7f;font-size:11px">./send_message.sh</span>
+          </div>
+          <div class="cf-line">
+            <span class="cf-prompt">NOM&nbsp;&nbsp;&nbsp;&nbsp;&gt;</span>
+            <input class="cf-field" id="cf-name" type="text" placeholder="Votre nom et prénom" autocomplete="name">
+          </div>
+          <div class="cf-line">
+            <span class="cf-prompt">EMAIL&nbsp;&nbsp;&gt;</span>
+            <input class="cf-field" id="cf-email" type="email" placeholder="votre@email.com" autocomplete="email">
+          </div>
+          <div class="cf-line">
+            <span class="cf-prompt">OBJET&nbsp;&nbsp;&gt;</span>
+            <input class="cf-field" id="cf-subject" type="text" placeholder="Objet du message">
+          </div>
+          <div style="margin-bottom:1rem;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+              <span class="cf-prompt" style="font-size:11px">MESSAGE&gt;</span>
+            </div>
+            <textarea class="cf-field-area" id="cf-msg" placeholder="Tapez votre message ici..."></textarea>
+          </div>
+          <div class="cf-submit">
+            <span class="cf-status" id="cf-status"></span>
+            <button class="cf-btn" onclick="sendMail()">[ ENVOYER ]</button>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+</main>
+</div>
+
+<!-- ══ CHECKBOX MENU TOGGLE (CSS-only, iOS safe) ══ -->
+<input type="checkbox" id="menu-toggle">
+
+<!-- ══ MOBILE TOPBAR ══ -->
+<div class="mobile-topbar">
+  <div class="mobile-brand">Mathis <span>Villain</span></div>
+  <label class="hamburger" for="menu-toggle" aria-label="Menu">
+    <span class="hb"></span>
+    <span class="hb"></span>
+    <span class="hb"></span>
+  </label>
+</div>
+
+<!-- ══ OVERLAY (label pour fermer) ══ -->
+<label class="mobile-overlay" for="menu-toggle" id="overlay"></label>
+
+<!-- ══ MOBILE DRAWER ══ -->
+<div class="mobile-drawer" id="drawer">
+  <div style="margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--border);">
+    <div style="font-family:var(--font-ui);font-size:.95rem;font-weight:800;color:var(--text);margin-bottom:2px;">Mathis <span style="color:var(--accent)">Villain</span></div>
+    <div style="font-size:10px;color:var(--muted2);letter-spacing:.06em;">BTS SIO · SISR</div>
+  </div>
+  <div style="font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:8px;padding:0 4px;">Navigation</div>
+  <nav class="aside-nav" id="drawer-nav">
+    <a href="#hero" onclick="var t=document.getElementById('menu-toggle');if(t)t.checked=false;"><span class="nav-ico">⌂</span>Accueil</a>
+    <a href="#profil" onclick="var t=document.getElementById('menu-toggle');if(t)t.checked=false;"><span class="nav-ico">◉</span>Profil</a>
+    <a href="#competences" onclick="var t=document.getElementById('menu-toggle');if(t)t.checked=false;"><span class="nav-ico">◈</span>Compétences</a>
+    <a href="#certifications" onclick="var t=document.getElementById('menu-toggle');if(t)t.checked=false;"><span class="nav-ico">◆</span>Certifications</a>
+    <a href="#projets" onclick="var t=document.getElementById('menu-toggle');if(t)t.checked=false;"><span class="nav-ico">◫</span>Projets</a>
+    <a href="#projets-scolaires" class="nav-indent" onclick="var t=document.getElementById('menu-toggle');if(t)t.checked=false;">— Scolaires</a>
+    <a href="#projets-perso" class="nav-indent" onclick="var t=document.getElementById('menu-toggle');if(t)t.checked=false;">— Personnels</a>
+    <a href="#projets-pro" class="nav-indent" onclick="var t=document.getElementById('menu-toggle');if(t)t.checked=false;">— Professionnels</a>
+    <a href="#experiences" onclick="var t=document.getElementById('menu-toggle');if(t)t.checked=false;"><span class="nav-ico">◷</span>Expériences</a>
+    <a href="#veille" onclick="var t=document.getElementById('menu-toggle');if(t)t.checked=false;"><span class="nav-ico">◎</span>Veille techno</a>
+    <a href="#contact" onclick="var t=document.getElementById('menu-toggle');if(t)t.checked=false;"><span class="nav-ico">✉</span>Contact</a>
+  </nav>
+  <div style="margin-top:auto;padding-top:1.25rem;border-top:1px solid var(--border);">
+    <div style="font-size:10px;color:var(--muted);margin-bottom:.75rem;">Session 2025–2027</div>
+    <div class="social-icons">
+      <a href="#" target="_blank" class="si github" title="GitHub"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+      <a href="#" target="_blank" class="si linkedin" title="LinkedIn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="#" target="_blank" class="si youtube" title="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
+    </div>
+  </div>
+</div>
+<script>
+function filt(grid,tag,btn){
+  var g=document.getElementById('g'+grid);
+  if(!g)return;
+  g.querySelectorAll('.pc').forEach(function(card){
+    card.classList.toggle('hid',tag!=='Tous'&&!(card.dataset.t||'').includes(tag));
+  });
+  btn.closest('.filters').querySelectorAll('.fb').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+}
+
+var menuToggle=document.getElementById('menu-toggle');
+if(menuToggle){
+  menuToggle.addEventListener('change',function(){
+    document.body.style.overflow=this.checked?'hidden':'';
+  });
+}
+
+function sendMail(){
+  var name=document.getElementById('cf-name').value.trim();
+  var email=document.getElementById('cf-email').value.trim();
+  var subject=document.getElementById('cf-subject').value.trim();
+  var msg=document.getElementById('cf-msg').value.trim();
+  var status=document.getElementById('cf-status');
+  if(!name||!email||!msg){
+    status.style.color='#f87171';
+    status.textContent='// champs requis manquants';
+    return;
+  }
+  var body='De : '+name+' ('+email+')
+
+'+msg;
+  window.location.href='mailto:vmathis2505@gmail.com'
+    +'?subject='+encodeURIComponent(subject||'Contact Portfolio')
+    +'&body='+encodeURIComponent(body);
+  status.style.color='#34d399';
+  status.textContent='// message transmis ✓';
+}
+
+var SECS=['hero','profil','competences','certifications','projets','projets-scolaires','projets-perso','projets-pro','experiences','veille','contact'];
+function updateNav(){
+  var scrollY=window.scrollY+140;
+  var atBottom=scrollY+window.innerHeight>=document.documentElement.scrollHeight-10;
+  var cur=SECS[0];
+  if(atBottom){cur='contact';}
+  else{SECS.forEach(function(id){var el=document.getElementById(id);if(el&&el.offsetTop<=scrollY)cur=id;});}
+  SECS.forEach(function(id){var a=document.getElementById('nav-'+id);if(a)a.classList.toggle('active',id===cur);});
+}
+window.addEventListener('scroll',updateNav,{passive:true});
+updateNav();
+
+if(window.innerWidth>860){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('shown');obs.unobserve(e.target);}
+    });
+  },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){
+    el.classList.add('animate');
+    obs.observe(el);
+  });
+}
+</script>
+</body>
+</html>
