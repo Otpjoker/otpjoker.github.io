@@ -922,7 +922,7 @@ td:first-child{color:var(--accent);font-weight:500;}
           <div class="cf-dot"></div><div class="cf-dot"></div><div class="cf-dot"></div>
           <span class="cf-title">send_message.sh</span>
         </div>
-        <form class="cf-body" id="contact-form">
+        <form class="cf-body" id="contact-form" action="https://formspree.io/f/mqeyjevd" method="POST">
           <div class="cf-line">
             <span class="cf-prompt">root@portfolio:~$</span>
             <span style="color:#7fff7f;font-size:11px">./send_message.sh</span>
@@ -948,6 +948,7 @@ td:first-child{color:var(--accent);font-weight:500;}
           <div class="cf-submit">
             <span class="cf-status" id="cf-status"></span>
             <button type="submit" class="cf-btn">[ ENVOYER ]</button>
+          <input type="hidden" name="_next" value="https://otpjoker.github.io">
           </div>
         </form>
       </div>
@@ -1020,37 +1021,7 @@ if(menuToggle){
   });
 }
 
-var form=document.getElementById('contact-form');
-if(form){
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var status=document.getElementById('cf-status');
-    var btn=form.querySelector('.cf-btn');
-    btn.textContent='[ ENVOI... ]';
-    btn.disabled=true;
-    fetch('https://formspree.io/f/mqeyjevd',{
-      method:'POST',
-      body:new FormData(form),
-      headers:{'Accept':'application/json'}
-    }).then(function(r){
-      if(r.ok){
-        status.style.color='#34d399';
-        status.textContent='// message envoyé ✓';
-        form.reset();
-      } else {
-        status.style.color='#f87171';
-        status.textContent='// erreur — réessayez';
-      }
-      btn.textContent='[ ENVOYER ]';
-      btn.disabled=false;
-    }).catch(function(){
-      status.style.color='#f87171';
-      status.textContent='// erreur réseau';
-      btn.textContent='[ ENVOYER ]';
-      btn.disabled=false;
-    });
-  });
-}
+/* formulaire géré nativement par Formspree */
 
 var SECS=['hero','profil','competences','certifications','projets','projets-scolaires','projets-perso','projets-pro','experiences','veille','contact'];
 function updateNav(){
