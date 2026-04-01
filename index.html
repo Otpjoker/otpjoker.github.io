@@ -519,13 +519,32 @@ td:first-child{color:var(--accent);font-weight:500;}
 .notif-ico{font-size:16px;flex-shrink:0;}
 .notif-close{margin-left:auto;cursor:pointer;opacity:.6;font-size:14px;flex-shrink:0;}
 .notif-close:hover{opacity:1;}
+
+/* ═══ MATHIS VILLAIN — couleur unique #34d399 partout ═══ */
+.name-full {
+  color: var(--accent);
+  font-family: var(--font-ui);
+  font-weight: 800;
+}
+/* Hero : "Mathis Villain" full en gradient vert animé */
+.hnaccent-full {
+  color: transparent;
+  background: linear-gradient(90deg, var(--accent2) 0%, var(--accent) 50%, var(--accent2) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: hgradshift 4s linear infinite;
+  font-family: var(--font-ui);
+  font-size: inherit;
+  font-weight: 800;
+}
 </style>
 </head>
 <body>
 <div class="layout">
 
 <aside>
-  <div class="aside-name">Mathis <span>Villain</span></div>
+  <div class="aside-name"><span class="name-full">Mathis Villain</span></div>
   <div class="aside-sub">BTS SIO · SISR · Nexa Digital School</div>
   <div class="aside-pill">Recherche alternance 2026</div>
   <div class="nav-sep">Navigation</div>
@@ -579,9 +598,9 @@ td:first-child{color:var(--accent);font-weight:500;}
   <!-- Eyebrow terminal -->
   <div class="heyebrow">Portfolio professionnel · BTS SIO SISR · Session 2027</div>
 
-  <!-- Nom + glitch -->
+  <!-- Nom + glitch — MODIFIÉ : tout Mathis Villain en vert gradient -->
   <div class="hnamewrap">
-    <div class="hname" data-text="Mathis Villain">Mathis <span class="hnaccent">Villain</span></div>
+    <div class="hname" data-text="Mathis Villain"><span class="hnaccent-full">Mathis Villain</span></div>
   </div>
 
   <!-- Typewriter -->
@@ -819,7 +838,7 @@ td:first-child{color:var(--accent);font-weight:500;}
 
 <input type="checkbox" id="menu-toggle">
 <div class="mobile-topbar">
-  <div class="mobile-brand">Mathis <span>Villain</span></div>
+  <div class="mobile-brand"><span class="name-full">Mathis Villain</span></div>
   <label class="hamburger" for="menu-toggle" aria-label="Menu">
     <span class="hb"></span><span class="hb"></span><span class="hb"></span>
   </label>
@@ -827,7 +846,7 @@ td:first-child{color:var(--accent);font-weight:500;}
 <label class="mobile-overlay" for="menu-toggle" id="overlay"></label>
 <div class="mobile-drawer" id="drawer">
   <div style="margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--border);">
-    <div style="font-family:var(--font-ui);font-size:.95rem;font-weight:800;color:var(--text);margin-bottom:2px;">Mathis <span style="color:var(--accent)">Villain</span></div>
+    <div style="font-family:var(--font-ui);font-size:.95rem;font-weight:800;color:var(--accent);margin-bottom:2px;">Mathis Villain</div>
     <div style="font-size:10px;color:var(--muted2);letter-spacing:.06em;">BTS SIO · SISR</div>
   </div>
   <div style="font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:8px;padding:0 4px;">Navigation</div>
