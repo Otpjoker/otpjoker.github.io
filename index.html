@@ -255,7 +255,7 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
 .cw-dot:nth-child(1){background:#3a1a1a;}.cw-dot:nth-child(2){background:#3a3a1a;}.cw-dot:nth-child(3){background:#1a3a1a;}
 .cw-title{margin:0 auto;font-size:10px;color:#2d6a2d;letter-spacing:.1em;font-family:var(--font-mono);}
 .carousel-body{padding:2rem 1rem 1.5rem;display:flex;flex-direction:column;align-items:center;}
-.carousel-scene{width:100%;height:200px;perspective:800px;display:flex;align-items:center;justify-content:center;position:relative;overflow:visible;}
+.carousel-scene{width:100%;height:260px;perspective:1100px;display:flex;align-items:center;justify-content:center;position:relative;overflow:visible;}
 .carousel-track{position:relative;width:120px;height:120px;transform-style:preserve-3d;transition:transform .65s cubic-bezier(.4,0,.2,1);}
 .carousel-item{position:absolute;width:112px;height:112px;background:#0a1a0a;border:1px solid rgba(52,211,153,.2);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;transition:border-color .25s,background .25s;backface-visibility:hidden;-webkit-backface-visibility:hidden;}
 .carousel-item:hover{border-color:rgba(52,211,153,.6);background:#0d200d;}
@@ -290,9 +290,7 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
 .sm-desc{font-size:12px;color:#64748b;line-height:1.85;margin-bottom:1rem;font-family:var(--font-mono);}
 .sm-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem;}
 .sm-chip{font-size:10px;padding:3px 9px;border-radius:20px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;font-family:var(--font-mono);}
-.sm-level-lbl{font-size:10px;color:#2d6a2d;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;font-family:var(--font-mono);}
-.sm-level-track{height:4px;background:#0d1a0d;border-radius:2px;overflow:hidden;}
-.sm-level-fill{height:100%;background:linear-gradient(90deg,#00cc33,#34d399);border-radius:2px;width:0%;transition:width .65s cubic-bezier(.4,0,.2,1);}
+
 
 .ctab-wrap{overflow-x:auto;border-radius:var(--r-lg);border:1px solid var(--border);}
 .ctab{width:100%;border-collapse:collapse;font-size:12px;}
@@ -406,7 +404,7 @@ td:first-child{color:var(--accent);font-weight:500;}
   #synthese{display:none;}
   .cert-grid{grid-template-columns:1fr;}
   .cert-header{flex-wrap:nowrap;}
-  .carousel-scene{height:160px;perspective:600px;}
+  .carousel-scene{height:200px;perspective:700px;}
   .carousel-track{width:100px;height:100px;}
   .carousel-item{width:92px;height:92px;}
   .ci-icon{font-size:22px;}
@@ -428,13 +426,23 @@ td:first-child{color:var(--accent);font-weight:500;}
 .cf-dot{width:9px;height:9px;border-radius:50%;}
 .cf-dot:nth-child(1){background:#3a1a1a;}.cf-dot:nth-child(2){background:#3a3a1a;}.cf-dot:nth-child(3){background:#1a3a1a;}
 .cf-title{margin:0 auto;font-size:10px;color:#2d6a2d;letter-spacing:.1em;font-family:var(--font-mono);}
-.cf-body{padding:1.5rem;}
+.cf-body{padding:1.5rem;background:#020a02;}
 .cf-line{display:flex;align-items:center;gap:8px;margin-bottom:1.1rem;font-size:12px;font-family:var(--font-mono);}
 .cf-prompt{color:#00ff41;white-space:nowrap;font-size:11px;}
 .cf-field{flex:1;background:transparent;border:none;border-bottom:1px solid #1a3a1a;color:#00cc33;font-family:var(--font-mono);font-size:12px;padding:4px 0;outline:none;caret-color:#00ff41;transition:border-color .2s;}
 .cf-field:focus{border-bottom-color:#00ff41;}
 .cf-field::placeholder{color:#1a4a1a;}
-.cf-field-area{flex:1;background:transparent;border:1px solid #1a3a1a;color:#00cc33;font-family:var(--font-mono);font-size:12px;padding:8px;outline:none;border-radius:6px;min-height:90px;resize:vertical;caret-color:#00ff41;transition:border-color .2s;}
+.cf-field:-webkit-autofill,
+.cf-field:-webkit-autofill:hover,
+.cf-field:-webkit-autofill:focus{
+  -webkit-text-fill-color:#00cc33;
+  -webkit-box-shadow:0 0 0px 1000px #020a02 inset;
+  box-shadow:0 0 0px 1000px #020a02 inset;
+  border-bottom-color:#1a3a1a;
+  transition:background-color 5000s ease-in-out 0s;
+  font-family:var(--font-mono);
+}
+.cf-field-area{flex:1;background:#020a02;border:1px solid #1a3a1a;color:#00cc33;font-family:var(--font-mono);font-size:12px;padding:8px;outline:none;border-radius:6px;min-height:90px;resize:vertical;caret-color:#00ff41;transition:border-color .2s;}
 .cf-field-area:focus{border-color:#00ff41;}
 .cf-field-area::placeholder{color:#1a4a1a;}
 .cf-submit{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-top:1.25rem;padding-top:1rem;border-top:1px solid #0d1f0d;}
@@ -444,7 +452,7 @@ td:first-child{color:var(--accent);font-weight:500;}
 .cf-btn:active{transform:scale(.97);}
 
 .xp-vertical{display:flex;flex-direction:column;gap:0;position:relative;max-width:720px;margin:0 auto;}
-.xp-vertical::before{content:'';position:absolute;left:50%;top:10px;bottom:10px;width:2px;background:linear-gradient(to bottom,var(--accent) 0%,var(--accent2) 75%,var(--bg4) 100%);transform:translateX(-50%);border-radius:1px;}
+.xp-vertical::before{content:'';position:absolute;left:50%;top:10px;bottom:10px;width:2px;background:linear-gradient(to bottom,var(--bg4) 0%,var(--accent2) 25%,var(--accent) 100%);transform:translateX(-50%);border-radius:1px;}
 .xp-v-item{display:grid;grid-template-columns:1fr 40px 1fr;align-items:start;margin-bottom:2.75rem;}
 .xp-v-item:last-child{margin-bottom:0;}
 .xp-v-left{text-align:right;padding-right:1.75rem;padding-top:2px;}
@@ -686,8 +694,7 @@ td:first-child{color:var(--accent);font-weight:500;}
       <div class="sm-sep"></div>
       <p class="sm-desc" id="sm-desc"></p>
       <div class="sm-chips" id="sm-chips"></div>
-      <div class="sm-level-lbl" id="sm-level-lbl"></div>
-      <div class="sm-level-track"><div class="sm-level-fill" id="sm-level-fill"></div></div>
+
     </div>
   </div>
 </div>
@@ -765,7 +772,17 @@ td:first-child{color:var(--accent);font-weight:500;}
     <p class="sub reveal">De la réorientation à la spécialisation en systèmes &amp; réseaux.</p>
     <div class="xp-vertical reveal">
       <div class="xp-v-item">
-        <div class="xp-v-left"><div class="xp-v-date">2023</div><div class="xp-v-title">Bac Général</div><div class="xp-v-place">Mention Assez Bien</div><div class="xp-v-tags xp-v-tags-right"><span class="xp-tag">Maths · NSI · SES</span></div></div>
+        <div class="xp-v-left"><div class="xp-v-date">2026</div><div class="xp-v-title" style="opacity:.6">Alternance</div><div class="xp-v-place" style="opacity:.6">Entreprise à confirmer</div><div class="xp-v-tags xp-v-tags-right"><span class="xp-tag xp-tag-green">Recherche active</span></div></div>
+        <div class="xp-v-center"><div class="xp-v-dot xp-v-dot-future"></div></div>
+        <div class="xp-v-right"></div>
+      </div>
+      <div class="xp-v-item">
+        <div class="xp-v-left"></div>
+        <div class="xp-v-center"><div class="xp-v-dot xp-v-dot-active"></div></div>
+        <div class="xp-v-right"><div class="xp-v-date">2025 — 2027</div><div class="xp-v-title">BTS SIO SISR</div><div class="xp-v-place">Nexa Digital School</div><div class="xp-v-tags"><span class="xp-tag xp-tag-blue">En cours</span><span class="xp-tag">Systèmes &amp; Réseaux</span></div></div>
+      </div>
+      <div class="xp-v-item">
+        <div class="xp-v-left"><div class="xp-v-date">2024 — 2025</div><div class="xp-v-title">Conseiller de vente</div><div class="xp-v-place">Castorama</div><div class="xp-v-tags xp-v-tags-right"><span class="xp-tag">CDD</span><span class="xp-tag">Service client</span></div></div>
         <div class="xp-v-center"><div class="xp-v-dot xp-v-dot-past"></div></div>
         <div class="xp-v-right"></div>
       </div>
@@ -775,18 +792,8 @@ td:first-child{color:var(--accent);font-weight:500;}
         <div class="xp-v-right"><div class="xp-v-date">2023 — 2024</div><div class="xp-v-title">BTS Immobilier</div><div class="xp-v-place">Lycée Fragonard</div><div class="xp-v-tags"><span class="xp-tag">Réorientation</span></div></div>
       </div>
       <div class="xp-v-item">
-        <div class="xp-v-left"><div class="xp-v-date">2024 — 2025</div><div class="xp-v-title">Conseiller de vente</div><div class="xp-v-place">Castorama</div><div class="xp-v-tags xp-v-tags-right"><span class="xp-tag">CDD</span><span class="xp-tag">Service client</span></div></div>
+        <div class="xp-v-left"><div class="xp-v-date">2023</div><div class="xp-v-title">Bac Général</div><div class="xp-v-place">Mention Assez Bien</div><div class="xp-v-tags xp-v-tags-right"><span class="xp-tag">Maths · NSI · SES</span></div></div>
         <div class="xp-v-center"><div class="xp-v-dot xp-v-dot-past"></div></div>
-        <div class="xp-v-right"></div>
-      </div>
-      <div class="xp-v-item">
-        <div class="xp-v-left"></div>
-        <div class="xp-v-center"><div class="xp-v-dot xp-v-dot-active"></div></div>
-        <div class="xp-v-right"><div class="xp-v-date">2025 — 2027</div><div class="xp-v-title">BTS SIO SISR</div><div class="xp-v-place">Nexa Digital School</div><div class="xp-v-tags"><span class="xp-tag xp-tag-blue">En cours</span><span class="xp-tag">Systèmes &amp; Réseaux</span></div></div>
-      </div>
-      <div class="xp-v-item">
-        <div class="xp-v-left"><div class="xp-v-date">2026</div><div class="xp-v-title" style="opacity:.6">Alternance</div><div class="xp-v-place" style="opacity:.6">Entreprise à confirmer</div><div class="xp-v-tags xp-v-tags-right"><span class="xp-tag xp-tag-green">Recherche active</span></div></div>
-        <div class="xp-v-center"><div class="xp-v-dot xp-v-dot-future"></div></div>
         <div class="xp-v-right"></div>
       </div>
     </div>
@@ -944,16 +951,20 @@ if(window.innerWidth>860){
 (function(){
   var SI='https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/';
   var stacks=[
-    {icon:SI+'linux.svg',label:'Linux',cat:'OS',name:'Linux (Debian/Ubuntu)',desc:'Administration de systèmes Linux : gestion des utilisateurs, droits, services systemd, et ligne de commande bash au quotidien.',chips:['Debian','Ubuntu','Bash','CLI'],level:65,levelLabel:'Niveau : Intermédiaire — 65%'},
-    {icon:SI+'windows.svg',label:'Windows',cat:'OS',name:'Windows Server',desc:'Installation et configuration de Windows Server, gestion des stratégies GPO et administration Active Directory.',chips:['AD','GPO','DNS','DHCP'],level:70,levelLabel:'Niveau : Intermédiaire — 70%'},
-    {icon:SI+'pfsense.svg',label:'pfSense',cat:'Firewall',name:'pfSense',desc:'Configuration de pare-feu, règles NAT, VLANs et VPN sur pfSense pour la sécurisation de réseaux.',chips:['NAT','VLAN','VPN','Firewall'],level:55,levelLabel:'Niveau : Débutant avancé — 55%'},
-    {icon:SI+'cisco.svg',label:'Réseaux',cat:'Network',name:'TCP/IP & Réseaux',desc:'Maîtrise des protocoles réseaux fondamentaux : TCP/IP, DNS, DHCP, VLAN, routage statique et dynamique.',chips:['TCP/IP','DNS','DHCP','VLAN','VPN'],level:72,levelLabel:'Niveau : Intermédiaire — 72%'},
-    {icon:SI+'vmware.svg',label:'VMware',cat:'Virtualisation',name:'VMware / VirtualBox',desc:'Création et gestion de machines virtuelles avec VMware et VirtualBox pour les labs et environnements de test.',chips:['VMware','VirtualBox','Snapshot','VM'],level:68,levelLabel:'Niveau : Intermédiaire — 68%'},
-    {icon:SI+'tryhackme.svg',label:'Cyber',cat:'Sécurité',name:'Cybersécurité',desc:'Introduction au pen-testing, analyse de vulnérabilités OWASP, notions RGPD et pratique sur TryHackMe.',chips:['Pen-Testing','OWASP','RGPD','TryHackMe'],level:50,levelLabel:'Niveau : Débutant avancé — 50%'},
-    {icon:SI+'python.svg',label:'Python',cat:'Scripts',name:'Python / Bash',desc:'Écriture de scripts Python et Bash pour automatiser des tâches systèmes et réseaux (niveau notions).',chips:['Python','Bash','Automatisation'],level:35,levelLabel:'Niveau : Débutant — 35%'},
-    {icon:SI+'microsoft365.svg',label:'M365',cat:'Cloud',name:'Microsoft 365',desc:'Administration M365 : gestion des utilisateurs, licences, Exchange Online et outils collaboratifs.',chips:['Exchange','Teams','SharePoint','Azure AD'],level:60,levelLabel:'Niveau : Intermédiaire — 60%'},
+    {icon:SI+'linux.svg',label:'Linux',cat:'OS',name:'Linux (Debian/Ubuntu)',desc:'Administration de systèmes Linux : gestion des utilisateurs, droits, services systemd, et ligne de commande bash au quotidien.',chips:['Debian','Ubuntu','Bash','CLI']},
+    {icon:SI+'windows.svg',label:'Windows',cat:'OS',name:'Windows Server',desc:'Installation et configuration de Windows Server, gestion des stratégies GPO et administration Active Directory.',chips:['AD','GPO','DNS','DHCP']},
+    {icon:SI+'pfsense.svg',label:'pfSense',cat:'Firewall',name:'pfSense',desc:'Configuration de pare-feu, règles NAT, VLANs et VPN sur pfSense pour la sécurisation de réseaux.',chips:['NAT','VLAN','VPN','Firewall']},
+    {icon:SI+'cisco.svg',label:'Réseaux',cat:'Network',name:'TCP/IP & Réseaux',desc:'Maîtrise des protocoles réseaux fondamentaux : TCP/IP, DNS, DHCP, VLAN, routage statique et dynamique.',chips:['TCP/IP','DNS','DHCP','VLAN','VPN']},
+    {icon:SI+'vmware.svg',label:'VMware',cat:'Virtualisation',name:'VMware / VirtualBox',desc:'Création et gestion de machines virtuelles avec VMware et VirtualBox pour les labs et environnements de test.',chips:['VMware','VirtualBox','Snapshot','VM']},
+    {icon:SI+'tryhackme.svg',label:'Cyber',cat:'Sécurité',name:'Cybersécurité',desc:'Introduction au pen-testing, analyse de vulnérabilités OWASP, notions RGPD et pratique sur TryHackMe.',chips:['Pen-Testing','OWASP','RGPD','TryHackMe']},
+    {icon:SI+'python.svg',label:'Python',cat:'Scripts',name:'Python / Bash',desc:'Écriture de scripts Python et Bash pour automatiser des tâches systèmes et réseaux (niveau notions).',chips:['Python','Bash','Automatisation']},
+    {icon:SI+'microsoftoffice.svg',label:'Office',cat:'Bureautique',name:'Office 365',desc:'Maîtrise de la suite Office 365 : Word, Excel, PowerPoint, ainsi que les outils collaboratifs Teams et SharePoint.',chips:['Word','Excel','PowerPoint','Teams','SharePoint']},
+    {icon:SI+'kalilinux.svg',label:'Kali Linux',cat:'Sécurité',name:'Kali Linux',desc:'Utilisation de Kali Linux pour les labs de cybersécurité : reconnaissance, exploitation et tests d\'intrusion en environnement contrôlé.',chips:['Pen-Testing','Nmap','Metasploit','CTF']},
+    {icon:SI+'gitlab.svg',label:'GLPI',cat:'Parc IT',name:'GLPI',desc:'Gestion de parc informatique avec GLPI : inventaire des assets, tickets d\'incidents et suivi des demandes utilisateurs.',chips:['Inventaire','Tickets','Assets','Helpdesk']},
+    {icon:SI+'ansible.svg',label:'Ansible',cat:'Automatisation',name:'Ansible',desc:'Automatisation de déploiements et de configurations d\'infrastructure avec Ansible : playbooks, inventaires et gestion de serveurs.',chips:['Playbooks','YAML','SSH','Déploiement']},
+    {icon:SI+'proxmox.svg',label:'Proxmox',cat:'Virtualisation',name:'Proxmox VE',desc:'Déploiement et gestion de machines virtuelles et conteneurs LXC sur Proxmox VE pour la création de labs et d\'environnements de test.',chips:['VM','LXC','KVM','Cluster','Backup']},
   ];
-  function getRadius(){return window.innerWidth<=860?160:210;}
+  function getRadius(){return window.innerWidth<=860?220:310;}
   var track=document.getElementById('carousel-track');
   var dotsEl=document.getElementById('cnav-dots');
   var overlay=document.getElementById('stack-overlay');
@@ -989,12 +1000,10 @@ if(window.innerWidth>860){
     document.getElementById('sm-bar-title').textContent='stack_info — '+s.label.toLowerCase();
     document.getElementById('sm-desc').textContent=s.desc;
     document.getElementById('sm-chips').innerHTML=s.chips.map(function(c){return'<span class="sm-chip">'+c+'</span>';}).join('');
-    document.getElementById('sm-level-lbl').textContent=s.levelLabel;
-    document.getElementById('sm-level-fill').style.width='0%';
     overlay.classList.add('open');
-    requestAnimationFrame(function(){setTimeout(function(){document.getElementById('sm-level-fill').style.width=s.level+'%';},80);});
+    requestAnimationFrame(function(){setTimeout(function(){},80);});
   }
-  function closeModal(){overlay.classList.remove('open');document.getElementById('sm-level-fill').style.width='0%';startAuto();}
+  function closeModal(){overlay.classList.remove('open');startAuto();}
   document.getElementById('sm-close').addEventListener('click',closeModal);
   overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
