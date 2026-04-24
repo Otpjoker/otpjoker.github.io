@@ -162,6 +162,38 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
 .sm-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem;}
 .sm-chip{font-size:10px;padding:3px 9px;border-radius:20px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;font-family:var(--font-mono);}
 
+/* ── PPE MODAL ── */
+.ppe-modal-overlay{position:fixed;inset:0;background:rgba(2,5,2,.92);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .28s;padding:1.5rem;}
+.ppe-modal-overlay.open{opacity:1;pointer-events:all;}
+.ppe-modal{background:#020a02;border:1px solid rgba(52,211,153,.4);border-radius:14px;width:100%;max-width:620px;max-height:90vh;overflow-y:auto;transform:translateY(22px) scale(.97);transition:transform .32s cubic-bezier(.4,0,.2,1);}
+.ppe-modal-overlay.open .ppe-modal{transform:translateY(0) scale(1);}
+.ppe-modal::-webkit-scrollbar{width:4px;}
+.ppe-modal::-webkit-scrollbar-track{background:#020a02;}
+.ppe-modal::-webkit-scrollbar-thumb{background:#1a3a1a;border-radius:2px;}
+.pm-bar{background:#041504;padding:10px 16px;display:flex;align-items:center;gap:7px;border-bottom:1px solid rgba(52,211,153,.15);position:sticky;top:0;z-index:1;}
+.pm-bar-dot{width:8px;height:8px;border-radius:50%;}
+.pm-bar-title{margin:0 auto;font-size:10px;color:rgba(52,211,153,.6);letter-spacing:.1em;font-family:var(--font-mono);}
+.pm-close{width:24px;height:24px;background:transparent;border:1px solid rgba(255,255,255,.1);border-radius:5px;color:#64748b;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);transition:all .15s;line-height:1;flex-shrink:0;}
+.pm-close:hover{border-color:#f87171;color:#f87171;}
+.pm-body{padding:2rem 2.25rem;}
+.pm-head{display:flex;align-items:center;gap:16px;margin-bottom:1.75rem;}
+.pm-emoji{font-size:2.6rem;width:64px;height:64px;background:#0d1a0d;border:1px solid rgba(52,211,153,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pm-title{font-family:var(--font-ui);font-size:1.15rem;font-weight:800;color:#dde3ee;margin-bottom:4px;letter-spacing:.04em;}
+.pm-subtitle{font-size:11px;color:#34d399;text-transform:uppercase;letter-spacing:.14em;font-family:var(--font-mono);}
+.pm-sep{height:1px;background:rgba(255,255,255,.06);margin-bottom:1.5rem;}
+.pm-section{margin-bottom:1.5rem;}
+.pm-section-label{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:rgba(52,211,153,.7);margin-bottom:.6rem;display:flex;align-items:center;gap:8px;font-family:var(--font-mono);}
+.pm-section-label::before{content:'//';color:rgba(52,211,153,.35);}
+.pm-text{font-size:12px;color:#94a3b8;line-height:1.9;font-family:var(--font-mono);}
+.pm-text strong{color:#dde3ee;}
+.pm-highlight{display:inline-flex;align-items:center;gap:6px;background:rgba(0,255,65,.07);border:1px solid rgba(0,255,65,.2);border-radius:6px;padding:8px 14px;font-size:12px;color:#00ff41;font-family:var(--font-mono);margin-top:.5rem;}
+.pm-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:.75rem;}
+.pm-chip{font-size:11px;padding:4px 11px;border-radius:20px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;font-family:var(--font-mono);}
+.pm-infogrid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:.5rem;}
+.pm-infobox{background:#041504;border:1px solid #1a3a1a;border-radius:8px;padding:.75rem 1rem;}
+.pm-infobox-label{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#2d6a2d;margin-bottom:3px;font-family:var(--font-mono);}
+.pm-infobox-val{font-size:12px;color:#7fff7f;font-family:var(--font-mono);}
+
 /* ── PROFIL TERMINAL ── */
 .hacker-profile{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;}
 .hacker-terminal{background:#020a02;border:1px solid #1a3a1a;border-radius:var(--r-lg);overflow:hidden;position:relative;grid-column:1/-1;}
@@ -199,6 +231,10 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
 .pl.pri{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.3);color:var(--accent);}
 .pl.pri:hover{background:rgba(52,211,153,.18);}
 .pc-ghost{border-style:dashed;opacity:.45;}
+
+/* ── En savoir plus btn ── */
+.pl-more{font-size:11px;padding:5px 12px;border-radius:var(--r);border:1px dashed var(--border-h);color:var(--muted2);font-family:var(--font-mono);cursor:pointer;background:transparent;transition:all .18s;}
+.pl-more:hover{color:var(--accent);border-color:rgba(52,211,153,.5);background:rgba(52,211,153,.05);}
 
 /* ── CERTIFICATIONS ── */
 .cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.75rem;}
@@ -338,12 +374,15 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
   .carousel-item{width:92px;height:92px;}
   .ci-label{font-size:9px;}
   .stack-modal{max-width:100%;}
+  .ppe-modal{max-width:100%;}
   .xp-vertical::before{left:7px;transform:none;}
   .xp-v-item{grid-template-columns:20px 1fr;margin-bottom:1.5rem;}
   .xp-v-left{display:none;}
   .xp-v-center{justify-content:flex-start;}
   .xp-v-right{padding-left:.9rem;}
   .xp-v-tags-right{justify-content:flex-start;}
+  .pm-body{padding:1.25rem;}
+  .pm-infogrid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -437,7 +476,7 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
   </div>
 </section>
 
-<!-- Modal -->
+<!-- Stack Modal -->
 <div class="stack-overlay" id="stack-overlay">
   <div class="stack-modal">
     <div class="sm-bar">
@@ -450,6 +489,86 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
       <div class="sm-sep"></div>
       <p class="sm-desc" id="sm-desc"></p>
       <div class="sm-chips" id="sm-chips"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PPE 1 MODAL ═══ -->
+<div class="ppe-modal-overlay" id="ppe1-modal">
+  <div class="ppe-modal">
+    <div class="pm-bar">
+      <div class="pm-bar-dot" style="background:#3a1a1a"></div>
+      <div class="pm-bar-dot" style="background:#3a3a1a"></div>
+      <div class="pm-bar-dot" style="background:#1a3a1a"></div>
+      <span class="pm-bar-title">ppe1_details.sh — Serveur LAMP · Emir Tech</span>
+      <button class="pm-close" id="ppe1-close">&#x2715;</button>
+    </div>
+    <div class="pm-body">
+      <div class="pm-head">
+        <div class="pm-emoji">🖥️</div>
+        <div>
+          <div class="pm-title">PPE 1 — Déploiement Serveur LAMP</div>
+          <div class="pm-subtitle">Projet Scolaire · Nexa Digital School · 2025</div>
+        </div>
+      </div>
+      <div class="pm-sep"></div>
+
+      <div class="pm-section">
+        <div class="pm-section-label">Contexte</div>
+        <p class="pm-text">Mise en place d'un serveur intranet complet pour l'entreprise fictive <strong>Emir Tech</strong>. L'objectif était de déployer une stack LAMP fonctionnelle dans un environnement virtualisé, en respectant les bonnes pratiques de sécurisation et de configuration réseau.</p>
+      </div>
+
+      <div class="pm-section">
+        <div class="pm-section-label">Environnement technique</div>
+        <div class="pm-infogrid">
+          <div class="pm-infobox">
+            <div class="pm-infobox-label">Système</div>
+            <div class="pm-infobox-val">Debian 12</div>
+          </div>
+          <div class="pm-infobox">
+            <div class="pm-infobox-label">Virtualisation</div>
+            <div class="pm-infobox-val">VMware</div>
+          </div>
+          <div class="pm-infobox">
+            <div class="pm-infobox-label">Réseau</div>
+            <div class="pm-infobox-val">10.0.0.0/24</div>
+          </div>
+          <div class="pm-infobox">
+            <div class="pm-infobox-label">VPN</div>
+            <div class="pm-infobox-val">WireGuard</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pm-section">
+        <div class="pm-section-label">Réalisations</div>
+        <p class="pm-text">
+          Installation et configuration d'<strong>Apache2</strong> avec un VirtualHost dédié à l'entreprise Emir Tech.<br><br>
+          Déploiement de <strong>MariaDB</strong> avec création d'un utilisateur sécurisé aux droits restreints, et installation de <strong>phpMyAdmin</strong> pour l'administration de la base de données.<br><br>
+          Configuration d'un tunnel <strong>VPN WireGuard</strong> pour permettre un accès distant sécurisé au serveur intranet depuis l'extérieur du réseau local.
+        </p>
+      </div>
+
+      <div class="pm-section">
+        <div class="pm-section-label">Résultats</div>
+        <div class="pm-highlight">✅ 10 / 10 tests de recette validés — tous les services opérationnels</div>
+      </div>
+
+      <div class="pm-section">
+        <div class="pm-section-label">Stack utilisée</div>
+        <div class="pm-chips">
+          <span class="pm-chip">Debian 12</span>
+          <span class="pm-chip">Apache2</span>
+          <span class="pm-chip">MariaDB</span>
+          <span class="pm-chip">PHP 8.2</span>
+          <span class="pm-chip">phpMyAdmin</span>
+          <span class="pm-chip">VMware</span>
+          <span class="pm-chip">WireGuard</span>
+          <span class="pm-chip">VirtualHost</span>
+          <span class="pm-chip">10.0.0.0/24</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -498,14 +617,14 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
         <div class="pc-placeholder" style="font-size:2.5rem;">🖥️</div>
         <div class="pc-body">
           <div class="pc-title">PPE 1 — Déploiement Serveur LAMP</div>
-          <p class="pc-desc">Mise en place d'un serveur intranet complet (Apache2, MariaDB, PHP 8.2, phpMyAdmin) sous Debian 12 dans VMware pour l'entreprise fictive Emir Tech. Réseau 10.0.0.0/24, VirtualHost dédié, utilisateur MariaDB sécurisé et tunnel VPN WireGuard. 10/10 tests de recette validés ✅</p>
+          <p class="pc-desc">Mise en place d'un serveur intranet complet (Apache2, MariaDB, PHP 8.2, phpMyAdmin) sous Debian 12 dans VMware.</p>
           <div class="tags">
             <span class="tag">Debian 12</span><span class="tag">Apache2</span><span class="tag">MariaDB</span>
             <span class="tag">PHP 8.2</span><span class="tag">phpMyAdmin</span><span class="tag">VMware</span><span class="tag">WireGuard</span>
           </div>
           <div class="pc-links">
             <a href="documentation_lamp_emirtech.docx" download class="pl pri">📄 Documentation ↓</a>
-            <span class="pl" style="pointer-events:none;opacity:.4;border-style:dashed;font-size:10px;">En savoir plus...</span>
+            <button class="pl-more" onclick="openPpe1Modal()">En savoir plus...</button>
           </div>
         </div>
       </div>
@@ -666,6 +785,28 @@ if(form){
   });
 }
 
+// ── PPE1 Modal ──
+function openPpe1Modal(){
+  document.getElementById('ppe1-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePpe1Modal(){
+  document.getElementById('ppe1-modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('ppe1-close').addEventListener('click',closePpe1Modal);
+document.getElementById('ppe1-modal').addEventListener('click',function(e){
+  if(e.target===this)closePpe1Modal();
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    closePpe1Modal();
+    // also close stack modal if open
+    var so=document.getElementById('stack-overlay');
+    if(so&&so.classList.contains('open'))so.classList.remove('open');
+  }
+});
+
 // Hero animation
 (function(){
   var wait=function(ms){return new Promise(function(r){setTimeout(r,ms);});};
@@ -767,7 +908,6 @@ if(window.innerWidth>860){
   function closeModal(){overlay.classList.remove('open');startAuto();}
   document.getElementById('sm-close').addEventListener('click',closeModal);
   overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
   goTo(0);startAuto();
 })();
 </script>
