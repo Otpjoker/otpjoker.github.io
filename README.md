@@ -4,7 +4,7 @@ Ce projet est un portfolio web hébergé avec GitHub Pages dans le cadre de mon 
 
 ## 📁 Contenu du projet
 - Une page principale (`index.html`)
-- Un document PDF téléchargeable
+- Des documents PDF téléchargeables
 - Hébergement via GitHub Pages
 - Formulaire de contact 
 
