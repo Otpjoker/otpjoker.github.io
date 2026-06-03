@@ -1158,21 +1158,6 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
 var menuToggle=document.getElementById('menu-toggle');
 if(menuToggle)menuToggle.addEventListener('change',function(){document.body.style.overflow=this.checked?'hidden':'';});
 
-  // ── Theme toggle ──
-(function(){
-  var btn=document.getElementById('theme-toggle');
-  var saved=localStorage.getItem('theme')||'dark';
-  function applyTheme(t){
-    document.documentElement.setAttribute('data-theme',t);
-    btn.textContent=t==='light'?'☀️':'🌙';
-  }
-  applyTheme(saved);
-  btn.addEventListener('click',function(){
-    var next=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';
-    localStorage.setItem('theme',next);
-    applyTheme(next);
-  });
-})();
 function showNotif(msg,type){
   var old=document.getElementById('notif-el');if(old)old.remove();
   var n=document.createElement('div');n.id='notif-el';n.className='notif notif-'+type;
@@ -1355,6 +1340,5 @@ if(window.innerWidth>860){
   goTo(0);startAuto();
 })();
 </script>
-<button id="theme-toggle" aria-label="Basculer le thème" title="Thème clair/sombre">🌙</button>
 </body>
 </html>
