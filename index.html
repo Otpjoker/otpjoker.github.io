@@ -919,7 +919,70 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
     </div>
   </div>
 </div>
-
+<!-- ═══ FRESHRSS MODAL ═══ -->
+<div class="ppe-modal-overlay" id="freshrss-modal">
+  <div class="ppe-modal">
+    <div class="pm-bar">
+      <div class="pm-bar-dot" style="background:#3a1a1a"></div>
+      <div class="pm-bar-dot" style="background:#3a3a1a"></div>
+      <div class="pm-bar-dot" style="background:#1a3a1a"></div>
+      <span class="pm-bar-title">freshrss_details.sh — Docker · Tailscale · CasaOS</span>
+      <button class="pm-close" id="freshrss-close">&#x2715;</button>
+    </div>
+    <div class="pm-body">
+      <div class="pm-head">
+        <div class="pm-emoji">📰</div>
+        <div>
+          <div class="pm-title">FreshRSS — Agrégateur RSS auto-hébergé</div>
+          <div class="pm-subtitle">Projet Personnel · Juin 2026 · v1.0</div>
+        </div>
+      </div>
+      <div class="pm-sep"></div>
+      <div class="pm-section">
+        <div class="pm-section-label">Objectif</div>
+        <p class="pm-text">Centraliser les flux d'actualités cyber (CERT-FR, The Hacker News, LeMagIT…) sur le homelab existant, sans dépendance à un service tiers. Données <strong>100% privées</strong>, accessibles partout via Tailscale, pour <strong>0 € supplémentaire</strong>.</p>
+      </div>
+      <div class="pm-section">
+        <div class="pm-section-label">Environnement technique</div>
+        <div class="pm-infogrid">
+          <div class="pm-infobox"><div class="pm-infobox-label">OS</div><div class="pm-infobox-val">Debian 13 Trixie</div></div>
+          <div class="pm-infobox"><div class="pm-infobox-label">Interface</div><div class="pm-infobox-val">CasaOS + Docker</div></div>
+          <div class="pm-infobox"><div class="pm-infobox-label">Image</div><div class="pm-infobox-val">freshrss/freshrss:1.27.1</div></div>
+          <div class="pm-infobox"><div class="pm-infobox-label">Port</div><div class="pm-infobox-val">8749 → 80</div></div>
+          <div class="pm-infobox"><div class="pm-infobox-label">BDD</div><div class="pm-infobox-val">SQLite (local)</div></div>
+          <div class="pm-infobox"><div class="pm-infobox-label">Accès distant</div><div class="pm-infobox-val">Tailscale VPN</div></div>
+        </div>
+      </div>
+      <div class="pm-section">
+        <div class="pm-section-label">Flux RSS abonnés</div>
+        <p class="pm-text">
+          <strong>CERT-FR (ANSSI)</strong> — alertes vulnérabilités<br>
+          <strong>The Hacker News</strong> — actualités cybersécurité<br>
+          <strong>BleepingComputer</strong> — incidents &amp; ransomwares<br>
+          <strong>LeMagIT Sécurité</strong> — infra &amp; cyber<br>
+          <strong>Korben</strong> — Linux / systèmes<br>
+          <strong>Le Monde IA</strong> — intelligence artificielle
+        </p>
+      </div>
+      <div class="pm-section">
+        <div class="pm-section-label">Sécurité</div>
+        <p class="pm-text">FreshRSS n'est <strong>jamais exposé sur Internet</strong>. Aucun port ouvert sur la box, aucun DNS public. Accès uniquement via tunnel <strong>WireGuard Tailscale</strong>, chiffré bout en bout.</p>
+      </div>
+      <div class="pm-section">
+        <div class="pm-section-label">Résultats</div>
+        <div class="pm-highlight">✅ Opérationnel · 0 € supplémentaire · Accès VPN chiffré · Données 100% locales</div>
+      </div>
+      <div class="pm-section">
+        <div class="pm-section-label">Stack utilisée</div>
+        <div class="pm-chips">
+          <span class="pm-chip">Debian 13</span><span class="pm-chip">CasaOS</span><span class="pm-chip">Docker</span>
+          <span class="pm-chip">FreshRSS 1.27.1</span><span class="pm-chip">SQLite</span><span class="pm-chip">Tailscale</span>
+          <span class="pm-chip">WireGuard</span><span class="pm-chip">CERT-FR</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- ═══ CERTIFICATIONS ═══ -->
 <section class="sec" id="certifications">
   <div class="sec-inner">
@@ -1230,7 +1293,43 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
       </div>
     </div>
   </div>
-
+<div class="pc reveal">
+        <div class="pc-placeholder" style="padding:0;overflow:hidden;height:220px;border-radius:var(--r-lg) var(--r-lg) 0 0;background:#020a02;">
+          <svg width="100%" height="100%" viewBox="0 0 460 165" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+            <style>.blink{animation:blink 1.2s step-end infinite;}@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}</style>
+            <rect x="20" y="12" width="420" height="140" rx="8" fill="#041504" stroke="#00ff41" stroke-width="1"/>
+            <rect x="20" y="12" width="420" height="28" rx="8" fill="#020a02"/>
+            <rect x="20" y="28" width="420" height="12" fill="#020a02"/>
+            <circle cx="38" cy="26" r="5" fill="#3a1a1a"/>
+            <circle cx="54" cy="26" r="5" fill="#3a3a1a"/>
+            <circle cx="70" cy="26" r="5" fill="#1a3a1a"/>
+            <text x="230" y="31" font-size="10" font-family="monospace" fill="#2d6a2d" text-anchor="middle">homelab — freshrss</text>
+            <text x="38" y="70" font-size="11" font-family="monospace" fill="#2d6a2d">root@homelab:~$</text>
+            <rect x="163" y="59" width="7" height="13" fill="#00ff41" class="blink"/>
+            <text x="230" y="100" font-size="20" font-weight="700" font-family="monospace" fill="#00ff41" text-anchor="middle">FreshRSS</text>
+            <text x="230" y="118" font-size="10" font-family="monospace" fill="#2d6a2d" text-anchor="middle">Docker · Tailscale · CasaOS</text>
+            <text x="38" y="145" font-size="9" font-family="monospace" fill="#1a4a1a">flux: CERT-FR · The Hacker News · LeMagIT · BleepingComputer</text>
+            <polyline points="22,14 13,14 13,22" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
+            <polyline points="438,14 447,14 447,22" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
+            <polyline points="22,150 13,150 13,142" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
+            <polyline points="438,150 447,150 447,142" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
+          </svg>
+        </div>
+        <div class="pc-body">
+          <div class="pc-title">FreshRSS — Agrégateur RSS auto-hébergé</div>
+          <p class="pc-desc">Lecteur RSS déployé via Docker sur le homelab, accessible depuis n'importe où via Tailscale. Centralise CERT-FR, The Hacker News, LeMagIT et BleepingComputer pour la veille cyber.</p>
+          <div class="tags">
+            <span class="tag">Docker</span><span class="tag">CasaOS</span><span class="tag">Tailscale</span>
+            <span class="tag">Debian 13</span><span class="tag">SQLite</span><span class="tag">RSS</span>
+          </div>
+          <div class="pc-links">
+            <a href="freshrss_documentation.pdf" target="_blank" class="pl pri">📄 Documentation ↓</a>
+            <button class="pl-more" onclick="openFreshRSSModal()">En savoir plus...</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="proj-block" id="projets-pro">
     <div class="proj-block-head reveal">Projets Professionnels <small>Stages &amp; alternance</small></div>
     <div class="pgrid">
@@ -1446,8 +1545,11 @@ document.addEventListener('keydown',function(e){
     if(pm2&&pm2.classList.contains('open'))closePpe2Modal();
     var hm=document.getElementById('homelab-modal');
     if(hm&&hm.classList.contains('open'))closeHomelabModal();
+    var fm=document.getElementById('freshrss-modal');
+if(fm&&fm.classList.contains('open'))closeFreshRSSModal();
   }
 });
+
 // ── PPE2 Modal ──
 function openPpe2Modal(){
   document.getElementById('ppe2-modal').classList.add('open');
@@ -1577,6 +1679,19 @@ if(window.innerWidth>860){
   overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
   goTo(0);startAuto();
 })();
+// ── FreshRSS Modal ──
+function openFreshRSSModal(){
+  document.getElementById('freshrss-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeFreshRSSModal(){
+  document.getElementById('freshrss-modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('freshrss-close').addEventListener('click',closeFreshRSSModal);
+document.getElementById('freshrss-modal').addEventListener('click',function(e){
+  if(e.target===this)closeFreshRSSModal();
+});
 </script>
 </body>
 </html>
