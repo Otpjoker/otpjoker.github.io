@@ -383,7 +383,240 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
   .xp-v-tags-right{justify-content:flex-start;}
   .pm-body{padding:1.25rem;}
   .pm-infogrid{grid-template-columns:1fr;}
+  #theme-toggle{bottom:1rem;right:1rem;width:40px;height:40px;font-size:18px;}
 }
+
+/* ══════════════════════════════════════════
+   THEME TOGGLE BUTTON
+══════════════════════════════════════════ */
+#theme-toggle{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:99998;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--bg2);border:1px solid var(--border-h);
+  font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 16px rgba(0,0,0,.3);transition:all .2s;line-height:1;padding:0;
+}
+#theme-toggle:hover{transform:scale(1.12);border-color:var(--accent);}
+
+/* ══════════════════════════════════════════
+   LIGHT THEME VARIABLES
+══════════════════════════════════════════ */
+[data-theme="light"]{
+  --bg:#f0f4f0;--bg2:#e8efe8;--bg3:#dde8dd;--bg4:#cfdecf;
+  --border:rgba(0,0,0,0.09);--border-h:rgba(0,0,0,0.18);
+  --accent:#1a9e6a;--accent2:#15803d;--accent3:#b45309;--accent4:#b91c1c;
+  --text:#0f1a0f;--muted:#4a6a4a;--muted2:#2d4a2d;
+  --green:#15803d;
+}
+
+/* ══════════════════════════════════════════
+   LIGHT MODE OVERRIDES
+══════════════════════════════════════════ */
+[data-theme="light"] body{background:var(--bg);color:var(--text);}
+[data-theme="light"] ::-webkit-scrollbar-track{background:var(--bg);}
+[data-theme="light"] ::-webkit-scrollbar-thumb{background:#b0cfb0;}
+
+/* Aside / nav */
+[data-theme="light"] aside{background:#e8efe8;border-color:rgba(0,0,0,.09);}
+[data-theme="light"] .aside-name{color:#0f1a0f;}
+[data-theme="light"] .aside-sub{color:#4a6a4a;}
+[data-theme="light"] .aside-pill{background:rgba(26,158,106,.12);border-color:rgba(26,158,106,.3);}
+[data-theme="light"] .nav-sep{color:#4a6a4a;}
+[data-theme="light"] .aside-nav a{color:#2d4a2d;}
+[data-theme="light"] .aside-nav a:hover{background:#cfdecf;color:#0f1a0f;}
+[data-theme="light"] .aside-nav a.active{background:rgba(26,158,106,.15);color:#1a9e6a;border-left-color:#1a9e6a;}
+[data-theme="light"] .aside-foot{border-color:rgba(0,0,0,.09);}
+[data-theme="light"] .aside-foot-session{color:#4a6a4a;}
+[data-theme="light"] .si{border-color:rgba(0,0,0,.12);}
+[data-theme="light"] .si svg{fill:#4a6a4a;}
+[data-theme="light"] .si.github:hover svg{fill:#0f1a0f;}
+
+/* Hero */
+[data-theme="light"] #hero{background:#e8efe8;}
+[data-theme="light"] #hero .hgrid{background-image:linear-gradient(rgba(21,128,61,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(21,128,61,.07) 1px,transparent 1px);}
+[data-theme="light"] #hero .horb{background:radial-gradient(circle,rgba(21,128,61,.07) 0%,transparent 70%);}
+[data-theme="light"] #hero::after{background:repeating-linear-gradient(0deg,rgba(0,0,0,.015) 0px,rgba(0,0,0,.015) 1px,transparent 1px,transparent 2px);}
+[data-theme="light"] #hero .hcorner{border-color:var(--green);}
+[data-theme="light"] .heyebrow{color:#2d6a3a;}
+[data-theme="light"] .hname{color:#0f1a0f;}
+[data-theme="light"] .htw{color:#2d4a2d;}
+[data-theme="light"] .hstatus{border-color:rgba(21,128,61,.3);background:rgba(21,128,61,.08);color:#15803d;}
+[data-theme="light"] .hsdot{background:#15803d;}
+[data-theme="light"] .htermfoot{color:#5a9a5a;}
+[data-theme="light"] .hinit{color:#0f1a0f;text-shadow:0 0 24px rgba(21,128,61,.3);}
+
+/* Sections */
+[data-theme="light"] .sec{border-color:rgba(0,0,0,.07);}
+[data-theme="light"] h2{color:#0f1a0f;}
+[data-theme="light"] .sub{color:#2d4a2d;}
+[data-theme="light"] .eyebrow{color:#1a9e6a;}
+[data-theme="light"] .eyebrow::before{background:#1a9e6a;}
+[data-theme="light"] .proj-section{border-color:rgba(0,0,0,.07);}
+[data-theme="light"] .proj-block-head{color:#0f1a0f;border-color:rgba(0,0,0,.07);}
+[data-theme="light"] .proj-block-head small{color:#4a6a4a;}
+
+/* Terminal blocks (hacker-terminal, carousel-wrap) */
+[data-theme="light"] .hacker-terminal{background:#dde8dd;border-color:rgba(21,128,61,.25);}
+[data-theme="light"] .hacker-terminal::before{background:linear-gradient(90deg,transparent,#15803d,transparent);}
+[data-theme="light"] .ht-bar{background:#cfdecf;border-color:rgba(21,128,61,.2);}
+[data-theme="light"] .ht-dot:nth-child(1){background:#e9b8b8;}
+[data-theme="light"] .ht-dot:nth-child(2){background:#e9e9b8;}
+[data-theme="light"] .ht-dot:nth-child(3){background:#b8e9b8;}
+[data-theme="light"] .ht-title{color:#2d6a3a;}
+[data-theme="light"] .ht-body{background:#dde8dd;}
+[data-theme="light"] .ht-prompt{color:#15803d;}
+[data-theme="light"] .ht-cmd{color:#2d6a3a;}
+[data-theme="light"] .ht-key{color:#0f5a2a;}
+[data-theme="light"] .ht-val{color:#1a7a3a;}
+[data-theme="light"] .ht-comment{color:#5a9a5a;}
+[data-theme="light"] .ht-cursor{background:#15803d;}
+
+/* Carousel */
+[data-theme="light"] .carousel-wrap{background:#dde8dd;border-color:rgba(21,128,61,.25);}
+[data-theme="light"] .carousel-wrap::before{background:linear-gradient(90deg,transparent,#15803d,transparent);}
+[data-theme="light"] .cw-bar{background:#cfdecf;border-color:rgba(21,128,61,.2);}
+[data-theme="light"] .cw-dot:nth-child(1){background:#e9b8b8;}
+[data-theme="light"] .cw-dot:nth-child(2){background:#e9e9b8;}
+[data-theme="light"] .cw-dot:nth-child(3){background:#b8e9b8;}
+[data-theme="light"] .cw-title{color:#2d6a3a;}
+[data-theme="light"] .carousel-item{background:#cfdecf;border-color:rgba(26,158,106,.3);}
+[data-theme="light"] .carousel-item:hover{background:#b8d9b8;border-color:rgba(26,158,106,.6);}
+[data-theme="light"] .ci-icon img{filter:brightness(0) saturate(100%) invert(28%) sepia(42%) saturate(600%) hue-rotate(110deg);}
+[data-theme="light"] .ci-label{color:#0f3a1a;}
+[data-theme="light"] .ci-cat{color:#4a7a4a;}
+[data-theme="light"] .cnav-btn{border-color:rgba(21,128,61,.3);color:#2d6a3a;background:transparent;}
+[data-theme="light"] .cnav-btn:hover{border-color:#15803d;color:#15803d;}
+[data-theme="light"] .cnav-dot{background:#b0cfb0;border-color:#b0cfb0;}
+[data-theme="light"] .cnav-dot.active{background:#1a9e6a;border-color:#1a9e6a;}
+
+/* Stack modal */
+[data-theme="light"] .stack-overlay{background:rgba(180,210,180,.88);}
+[data-theme="light"] .stack-modal{background:#e8efe8;border-color:rgba(26,158,106,.4);}
+[data-theme="light"] .sm-bar{background:#cfdecf;border-color:rgba(21,128,61,.2);}
+[data-theme="light"] .sm-bar-dot{background:#b8e9b8;}
+[data-theme="light"] .sm-bar-title{color:#2d6a3a;}
+[data-theme="light"] .sm-close{border-color:rgba(0,0,0,.15);color:#4a6a4a;}
+[data-theme="light"] .sm-icon{background:#cfdecf;border-color:rgba(26,158,106,.3);}
+[data-theme="light"] .sm-icon img{filter:brightness(0) saturate(100%) invert(28%) sepia(42%) saturate(600%) hue-rotate(110deg);}
+[data-theme="light"] .sm-name{color:#0f1a0f;}
+[data-theme="light"] .sm-cat{color:#1a9e6a;}
+[data-theme="light"] .sm-sep{background:rgba(0,0,0,.08);}
+[data-theme="light"] .sm-desc{color:#2d4a2d;}
+[data-theme="light"] .sm-chip{background:rgba(26,158,106,.1);border-color:rgba(26,158,106,.3);color:#1a9e6a;}
+
+/* PPE modals */
+[data-theme="light"] .ppe-modal-overlay{background:rgba(180,210,180,.9);}
+[data-theme="light"] .ppe-modal{background:#e8efe8;border-color:rgba(26,158,106,.4);}
+[data-theme="light"] .ppe-modal::-webkit-scrollbar-track{background:#e8efe8;}
+[data-theme="light"] .ppe-modal::-webkit-scrollbar-thumb{background:#b0cfb0;}
+[data-theme="light"] .pm-bar{background:#cfdecf;border-color:rgba(21,128,61,.2);}
+[data-theme="light"] .pm-bar-dot{background:#b8e9b8;}
+[data-theme="light"] .pm-bar-title{color:#2d6a3a;}
+[data-theme="light"] .pm-close{border-color:rgba(0,0,0,.15);color:#4a6a4a;}
+[data-theme="light"] .pm-title{color:#0f1a0f;}
+[data-theme="light"] .pm-subtitle{color:#1a9e6a;}
+[data-theme="light"] .pm-emoji{background:#cfdecf;border-color:rgba(26,158,106,.3);}
+[data-theme="light"] .pm-sep{background:rgba(0,0,0,.08);}
+[data-theme="light"] .pm-section-label{color:#1a9e6a;}
+[data-theme="light"] .pm-section-label::before{color:rgba(26,158,106,.4);}
+[data-theme="light"] .pm-text{color:#2d4a2d;}
+[data-theme="light"] .pm-text strong{color:#0f1a0f;}
+[data-theme="light"] .pm-infobox{background:#cfdecf;border-color:rgba(21,128,61,.2);}
+[data-theme="light"] .pm-infobox-label{color:#4a7a4a;}
+[data-theme="light"] .pm-infobox-val{color:#0f3a1a;}
+[data-theme="light"] .pm-highlight{background:rgba(21,128,61,.08);border-color:rgba(21,128,61,.25);color:#15803d;}
+[data-theme="light"] .pm-chip{background:rgba(26,158,106,.1);border-color:rgba(26,158,106,.3);color:#1a9e6a;}
+
+/* Project cards */
+[data-theme="light"] .pc{background:#e8efe8;border-color:rgba(0,0,0,.09);}
+[data-theme="light"] .pc:hover{border-color:rgba(26,158,106,.5);box-shadow:0 12px 40px rgba(26,158,106,.08);}
+[data-theme="light"] .pc-placeholder{background:#cfdecf;border-color:rgba(0,0,0,.07);}
+[data-theme="light"] .pc:hover .pc-placeholder{background:#b8d9b8;}
+[data-theme="light"] .pc-title{color:#0f1a0f;}
+[data-theme="light"] .pc-desc{color:#2d4a2d;}
+[data-theme="light"] .tag{background:#cfdecf;color:#2d4a2d;border-color:rgba(0,0,0,.1);}
+[data-theme="light"] .pc-links{border-color:rgba(0,0,0,.07);}
+[data-theme="light"] .pl{border-color:rgba(0,0,0,.12);color:#2d4a2d;}
+[data-theme="light"] .pl:hover{color:#0f1a0f;border-color:rgba(0,0,0,.25);}
+[data-theme="light"] .pl.pri{background:rgba(26,158,106,.12);border-color:rgba(26,158,106,.35);color:#1a9e6a;}
+[data-theme="light"] .pl.pri:hover{background:rgba(26,158,106,.2);}
+[data-theme="light"] .pl-more{border-color:rgba(0,0,0,.15);color:#2d4a2d;}
+[data-theme="light"] .pl-more:hover{color:#1a9e6a;border-color:rgba(26,158,106,.4);}
+[data-theme="light"] .pc-ghost{opacity:.55;}
+
+/* Certifications */
+[data-theme="light"] .cert-card{background:#e8efe8;border-color:rgba(0,0,0,.09);}
+[data-theme="light"] .cert-card:hover{border-color:rgba(185,28,28,.35);}
+[data-theme="light"] .cert-logo{background:#cfdecf;border-color:rgba(0,0,0,.09);}
+[data-theme="light"] .cert-name{color:#0f1a0f;}
+[data-theme="light"] .cert-issuer{color:#b91c1c;}
+[data-theme="light"] .cert-btn{background:rgba(185,28,28,.08);border-color:rgba(185,28,28,.25);color:#b91c1c;}
+[data-theme="light"] .cert-btn:hover{background:rgba(185,28,28,.15);}
+[data-theme="light"] .cert-meta{border-color:rgba(0,0,0,.07);}
+[data-theme="light"] .cert-meta-lbl{color:#4a6a4a;}
+[data-theme="light"] .cert-meta-val{color:#0f1a0f;}
+[data-theme="light"] .cert-desc{color:#2d4a2d;}
+[data-theme="light"] .tg{background:#cfdecf;color:#2d4a2d;border-color:rgba(0,0,0,.1);}
+[data-theme="light"] .cert-card-ghost{opacity:.55;}
+
+/* Veille */
+[data-theme="light"] .vc{background:#e8efe8;border-color:rgba(0,0,0,.09);}
+[data-theme="light"] .vc:hover{border-color:rgba(0,0,0,.2);}
+[data-theme="light"] .vc-cat{color:#4a6a4a;}
+[data-theme="light"] .vc-title{color:#0f1a0f;}
+[data-theme="light"] .vc-desc{color:#2d4a2d;}
+[data-theme="light"] .vc-foot{border-color:rgba(0,0,0,.07);}
+[data-theme="light"] .vc-src{color:#4a6a4a;}
+[data-theme="light"] .badge{background:rgba(26,158,106,.1);color:#1a9e6a;border-color:rgba(26,158,106,.2);}
+
+/* Timeline */
+[data-theme="light"] .xp-vertical::before{background:linear-gradient(to bottom,#cfdecf 0%,#15803d 25%,#1a9e6a 100%);}
+[data-theme="light"] .xp-v-dot-past{background:#6a9a6a;}
+[data-theme="light"] .xp-v-dot-active{background:#1a9e6a;box-shadow:0 0 0 4px rgba(26,158,106,.2),0 0 10px rgba(26,158,106,.3);}
+[data-theme="light"] .xp-v-dot-future{background:#cfdecf;border-color:#9abf9a;}
+[data-theme="light"] .xp-v-date{color:#4a6a4a;}
+[data-theme="light"] .xp-v-title{color:#0f1a0f;}
+[data-theme="light"] .xp-v-place{color:#1a9e6a;}
+[data-theme="light"] .xp-tag{background:#cfdecf;color:#2d4a2d;border-color:rgba(0,0,0,.1);}
+[data-theme="light"] .xp-tag-blue{background:rgba(26,158,106,.12);color:#1a9e6a;border-color:rgba(26,158,106,.3);}
+[data-theme="light"] .xp-tag-green{background:rgba(21,128,61,.12);color:#15803d;border-color:rgba(21,128,61,.3);}
+
+/* Contact form */
+[data-theme="light"] .contact-terminal{background:#dde8dd;border-color:rgba(21,128,61,.25);}
+[data-theme="light"] .cf-bar{background:#cfdecf;border-color:rgba(21,128,61,.2);}
+[data-theme="light"] .cf-dot:nth-child(1){background:#e9b8b8;}
+[data-theme="light"] .cf-dot:nth-child(2){background:#e9e9b8;}
+[data-theme="light"] .cf-dot:nth-child(3){background:#b8e9b8;}
+[data-theme="light"] .cf-title{color:#2d6a3a;}
+[data-theme="light"] .cf-body{background:#dde8dd;}
+[data-theme="light"] .cf-line{color:#0f1a0f;}
+[data-theme="light"] .cf-prompt{color:#15803d;}
+[data-theme="light"] .cf-field{color:#0f3a1a;border-bottom-color:rgba(21,128,61,.3);caret-color:#15803d;}
+[data-theme="light"] .cf-field::placeholder{color:#7aaa7a;}
+[data-theme="light"] .cf-field:focus{border-bottom-color:#15803d;}
+[data-theme="light"] .cf-field:-webkit-autofill,[data-theme="light"] .cf-field:-webkit-autofill:hover,[data-theme="light"] .cf-field:-webkit-autofill:focus{-webkit-text-fill-color:#0f3a1a;-webkit-box-shadow:0 0 0px 1000px #dde8dd inset;}
+[data-theme="light"] .cf-field-area{background:#cfdecf;border-color:rgba(21,128,61,.3);color:#0f3a1a;caret-color:#15803d;}
+[data-theme="light"] .cf-field-area::placeholder{color:#7aaa7a;}
+[data-theme="light"] .cf-field-area:focus{border-color:#15803d;}
+[data-theme="light"] .cf-submit{border-color:rgba(21,128,61,.15);}
+[data-theme="light"] .cf-status{color:#4a7a4a;}
+[data-theme="light"] .cf-btn{background:rgba(21,128,61,.1);border-color:rgba(21,128,61,.35);color:#15803d;}
+[data-theme="light"] .cf-btn:hover{background:rgba(21,128,61,.2);border-color:#15803d;}
+
+/* Mobile */
+[data-theme="light"] .mobile-topbar{background:rgba(232,239,232,.98);border-color:rgba(0,0,0,.09);}
+[data-theme="light"] .mobile-brand{color:#1a9e6a;}
+[data-theme="light"] .hamburger{border-color:rgba(0,0,0,.12);}
+[data-theme="light"] .hamburger .hb{background:#2d4a2d;}
+[data-theme="light"] .mobile-drawer{background:#e8efe8;border-color:rgba(0,0,0,.09);}
+
+/* Notif */
+[data-theme="light"] .notif-ok{background:#e8efe8;border-color:rgba(26,158,106,.5);color:#1a9e6a;}
+[data-theme="light"] .notif-err{background:#fee2e2;border-color:rgba(185,28,28,.4);color:#b91c1c;}
+
+/* Tableau E5 inline color overrides */
+[data-theme="light"] #tableau-e5 .carousel-wrap{background:#dde8dd;}
+[data-theme="light"] #tableau-e5 table *{color:inherit;}
 </style>
 </head>
 <body>
@@ -695,7 +928,6 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
     <p class="sub reveal">Certifications obtenues en dehors de la formation, témoignant d'un investissement personnel dans le domaine de la cybersécurité.</p>
     <div class="cert-grid">
 
-      <!-- Cert 1 : Pre Security (nouvelle version) -->
       <div class="cert-card reveal">
         <div class="cert-header">
           <div class="cert-logo">🔐</div>
@@ -714,7 +946,6 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
         <div class="cert-tags"><span class="tg">Réseaux</span><span class="tg">Linux</span><span class="tg">Web</span><span class="tg">Cybersécurité</span><span class="tg">Offensive</span></div>
       </div>
 
-      <!-- Cert 2 : Pre Security Legacy -->
       <div class="cert-card reveal">
         <div class="cert-header">
           <div class="cert-logo">🔒</div>
@@ -733,7 +964,6 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
         <div class="cert-tags"><span class="tg">Pen-Testing</span><span class="tg">Linux</span><span class="tg">Réseaux</span><span class="tg">Cybersécurité</span><span class="tg">OWASP</span></div>
       </div>
 
-      <!-- Placeholder -->
       <div class="cert-card cert-card-ghost reveal">
         <div class="cert-header"><div class="cert-logo" style="opacity:.35">🏅</div><div><div class="cert-name">[Prochaine certification]</div><div class="cert-issuer">À venir</div></div></div>
         <p class="cert-desc" style="opacity:.5">Exemples : TryHackMe Junior Penetration Tester, CompTIA Network+, Cisco CCNA, Google IT Support…</p>
@@ -767,7 +997,6 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
             </tr>
           </thead>
           <tbody>
-            <!-- PPE 1 -->
             <tr style="border-bottom:1px solid #0d1f0d;transition:background .15s;" onmouseover="this.style.background='#041504'" onmouseout="this.style.background='transparent'">
               <td style="padding:12px 14px;color:#2d6a2d;white-space:nowrap;">PPE 1</td>
               <td style="padding:12px 14px;color:#dde3ee;font-weight:500;">Déploiement Serveur LAMP<br><span style="color:#64748b;font-size:11px;font-weight:400;">Emir Tech — Nexa Digital School</span></td>
@@ -787,54 +1016,26 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
                 </span>
               </td>
             </tr>
-
-            <!-- PPE 2 placeholder -->
-           <!-- PPE 2 -->
-<tr style="border-bottom:1px solid #0d1f0d;transition:background .15s;" onmouseover="this.style.background='#041504'" onmouseout="this.style.background='transparent'">
-  <td style="padding:12px 14px;color:#2d6a2d;white-space:nowrap;">PPE 2</td>
-  <td style="padding:12px 14px;color:#dde3ee;font-weight:500;">Déploiement Active Directory<br><span style="color:#64748b;font-size:11px;font-weight:400;">Emir Tech — Nexa Digital School</span></td>
-  <td style="padding:12px 14px;color:#94a3b8;">Mise en place d'un domaine AD sous Windows Server 2022 / VMware</td>
-  <td style="padding:12px 14px;">
-    <div style="display:flex;flex-wrap:wrap;gap:4px;">
-      <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;">B1.1</span>
-      <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;">B1.2</span>
-      <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;">B2.1</span>
-      <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;">B2.2</span>
-      <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;">B2.3</span>
-    </div>
-  </td>
-  <td style="padding:12px 14px;color:#64748b;white-space:nowrap;">2025 — 2026</td>
-  <td style="padding:12px 14px;">
-    <span style="display:inline-flex;align-items:center;gap:5px;font-size:10px;padding:3px 9px;border-radius:20px;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25);color:#34d399;">
-      <span style="width:5px;height:5px;border-radius:50%;background:#34d399;"></span>Validé
-    </span>
-  </td>
-</tr>
-<!-- Homelab Personnel -->
-<tr style="border-bottom:1px solid #0d1f0d;transition:background .15s;" onmouseover="this.style.background='#041504'" onmouseout="this.style.background='transparent'">
-  <td style="padding:12px 14px;color:#2d6a2d;white-space:nowrap;">Perso</td>
-  <td style="padding:12px 14px;color:#dde3ee;font-weight:500;">Homelab Personnel<br><span style="color:#64748b;font-size:11px;font-weight:400;">Projet perso — Debian 13 · CasaOS</span></td>
-  <td style="padding:12px 14px;color:#94a3b8;">Serveur low-power auto-hébergé, Docker, DNS, VPN mesh</td>
-  <td style="padding:12px 14px;">
-    <div style="display:flex;flex-wrap:wrap;gap:4px;">
-      <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;">B1.1</span>
-      <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;">B1.2</span>
-      <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;">B2.1</span>
-      <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;">B2.2</span>
-      <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;">B2.3</span>
-      <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;">B2.4</span>
-      <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;">B3.1</span>
-    </div>
-  </td>
-  <td style="padding:12px 14px;color:#64748b;white-space:nowrap;">2026</td>
-  <td style="padding:12px 14px;">
-    <span style="display:inline-flex;align-items:center;gap:5px;font-size:10px;padding:3px 9px;border-radius:20px;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25);color:#34d399;">
-      <span style="width:5px;height:5px;border-radius:50%;background:#34d399;"></span>Validé
-    </span>
-  </td>
-</tr>
-
-            <!-- PPE 3 placeholder -->
+            <tr style="border-bottom:1px solid #0d1f0d;transition:background .15s;" onmouseover="this.style.background='#041504'" onmouseout="this.style.background='transparent'">
+              <td style="padding:12px 14px;color:#2d6a2d;white-space:nowrap;">PPE 2</td>
+              <td style="padding:12px 14px;color:#dde3ee;font-weight:500;">Déploiement Active Directory<br><span style="color:#64748b;font-size:11px;font-weight:400;">Emir Tech — Nexa Digital School</span></td>
+              <td style="padding:12px 14px;color:#94a3b8;">Mise en place d'un domaine AD sous Windows Server 2022 / VMware</td>
+              <td style="padding:12px 14px;">
+                <div style="display:flex;flex-wrap:wrap;gap:4px;">
+                  <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;">B1.1</span>
+                  <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;">B1.2</span>
+                  <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;">B2.1</span>
+                  <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;">B2.2</span>
+                  <span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34d399;">B2.3</span>
+                </div>
+              </td>
+              <td style="padding:12px 14px;color:#64748b;white-space:nowrap;">2025 — 2026</td>
+              <td style="padding:12px 14px;">
+                <span style="display:inline-flex;align-items:center;gap:5px;font-size:10px;padding:3px 9px;border-radius:20px;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25);color:#34d399;">
+                  <span style="width:5px;height:5px;border-radius:50%;background:#34d399;"></span>Validé
+                </span>
+              </td>
+            </tr>
             <tr style="opacity:.5;">
               <td style="padding:12px 14px;color:#2d6a2d;white-space:nowrap;">PPE 3</td>
               <td style="padding:12px 14px;color:#64748b;font-style:italic;">À définir</td>
@@ -850,7 +1051,6 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
           </tbody>
         </table>
 
-        <!-- Légende compétences -->
         <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid #0d1f0d;">
           <div style="font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#2d6a2d;margin-bottom:.75rem;font-family:var(--font-mono);">// Référentiel de compétences SISR</div>
           <div style="display:flex;flex-wrap:wrap;gap:10px;">
@@ -858,30 +1058,27 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
             <div style="font-size:11px;color:#64748b;font-family:var(--font-mono);"><span style="color:#34d399;">B1.2</span> — Maintenir &amp; exploiter l'infrastructure</div>
             <div style="font-size:11px;color:#64748b;font-family:var(--font-mono);"><span style="color:#34d399;">B2.1</span> — Exploiter &amp; administrer les serveurs</div>
             <div style="font-size:11px;color:#64748b;font-family:var(--font-mono);"><span style="color:#34d399;">B2.3</span> — Sécuriser les accès et services</div>
-            <div style="font-size:11px;color:#64748b;font-family:var(--font-mono);"><span style="color:#34d399;">B2.4</span> — Administrer des réseaux</div>
-            <div style="font-size:11px;color:#64748b;font-family:var(--font-mono);"><span style="color:#34d399;">B3.1</span> — Protéger les données</div>
           </div>
         </div>
-         <!-- Iframe PDF E5 -->
-<div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid #1a3a1a;">
-  <div style="font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#2d6a2d;margin-bottom:1rem;font-family:var(--font-mono);">// tableau_e5_officiel.pdf</div>
-  <div style="background:#020a02;border:1px solid #1a3a1a;border-radius:var(--r-lg);overflow:hidden;">
-    <div style="background:#041504;padding:8px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #1a3a1a;">
-      <div style="width:9px;height:9px;border-radius:50%;background:#3a1a1a;"></div>
-      <div style="width:9px;height:9px;border-radius:50%;background:#3a3a1a;"></div>
-      <div style="width:9px;height:9px;border-radius:50%;background:#1a3a1a;"></div>
-      <span style="margin:0 auto;font-size:10px;color:#2d6a2d;letter-spacing:.1em;font-family:var(--font-mono);">tableau_e5_officiel.pdf</span>
-      <a href="tableau_e5.pdf" target="_blank" style="font-size:10px;color:#34d399;font-family:var(--font-mono);text-decoration:none;border:1px solid rgba(52,211,153,.2);padding:3px 9px;border-radius:4px;">↗ Ouvrir</a>
-    </div>
-<iframe
-  src="https://docs.google.com/viewer?url=https://otpjoker.github.io/tableau_e5.pdf&embedded=true"
-  width="100%"
-  height="700px"
-  style="display:block;border:none;background:#020a02;"
-  title="Tableau de synthèse E5">
-</iframe>
-  </div>
-</div>
+        <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid #1a3a1a;">
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#2d6a2d;margin-bottom:1rem;font-family:var(--font-mono);">// tableau_e5_officiel.pdf</div>
+          <div style="background:#020a02;border:1px solid #1a3a1a;border-radius:var(--r-lg);overflow:hidden;">
+            <div style="background:#041504;padding:8px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #1a3a1a;">
+              <div style="width:9px;height:9px;border-radius:50%;background:#3a1a1a;"></div>
+              <div style="width:9px;height:9px;border-radius:50%;background:#3a3a1a;"></div>
+              <div style="width:9px;height:9px;border-radius:50%;background:#1a3a1a;"></div>
+              <span style="margin:0 auto;font-size:10px;color:#2d6a2d;letter-spacing:.1em;font-family:var(--font-mono);">tableau_e5_officiel.pdf</span>
+              <a href="tableau_e5.pdf" target="_blank" style="font-size:10px;color:#34d399;font-family:var(--font-mono);text-decoration:none;border:1px solid rgba(52,211,153,.2);padding:3px 9px;border-radius:4px;">↗ Ouvrir</a>
+            </div>
+            <iframe
+              src="https://docs.google.com/viewer?url=https://otpjoker.github.io/tableau_e5.pdf&embedded=true"
+              width="100%"
+              height="700px"
+              style="display:block;border:none;background:#020a02;"
+              title="Tableau de synthèse E5">
+            </iframe>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -927,38 +1124,38 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
           </div>
         </div>
       </div>
-     <div class="pc reveal">
-  <div class="pc-placeholder" style="padding:0;overflow:hidden;height:220px;border-radius:var(--r-lg) var(--r-lg) 0 0;background:#020a02;">
-    <svg width="100%" height="100%" viewBox="120 10 440 165" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-      <style>.blink{animation:blink 1.2s step-end infinite;}@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}</style>
-      <rect x="140" y="20" width="400" height="140" rx="8" fill="#041504" stroke="#00ff41" stroke-width="1"/>
-      <rect x="140" y="20" width="400" height="30" rx="8" fill="#020a02" stroke="none"/>
-      <rect x="140" y="38" width="400" height="12" fill="#020a02" stroke="none"/>
-      <circle cx="158" cy="35" r="5" fill="#3a1a1a"/><circle cx="174" cy="35" r="5" fill="#3a3a1a"/><circle cx="190" cy="35" r="5" fill="#1a3a1a"/>
-      <text x="340" y="40" font-size="11" font-family="monospace" fill="#2d6a2d" text-anchor="middle">emir-tech — powershell</text>
-      <text x="165" y="78" font-size="13" font-family="monospace" fill="#2d6a2d">PS C:\&gt;</text>
-      <rect x="227" y="66" width="9" height="15" fill="#00ff41" class="blink"/>
-      <text x="340" y="112" font-size="26" font-weight="700" font-family="monospace" fill="#00ff41" text-anchor="middle">EMIR TECH</text>
-      <text x="340" y="135" font-size="13" font-family="monospace" fill="#2d6a2d" text-anchor="middle">Active Directory · Windows Server 2022</text>
-      <polyline points="142,22 133,22 133,30" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
-      <polyline points="538,22 547,22 547,30" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
-      <polyline points="142,158 133,158 133,150" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
-      <polyline points="538,158 547,158 547,150" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
-    </svg>
-  </div>
-  <div class="pc-body">
-    <div class="pc-title">PPE 2 — Déploiement Active Directory</div>
-    <p class="pc-desc">Mise en place d'un domaine Active Directory (AD DS, DNS, DHCP, GPO) sous Windows Server 2022 dans VMware pour Emir Tech.</p>
-    <div class="tags">
-      <span class="tag">Windows Server 2022</span><span class="tag">Active Directory</span><span class="tag">DNS</span>
-      <span class="tag">DHCP</span><span class="tag">GPO</span><span class="tag">VMware</span>
-    </div>
-    <div class="pc-links">
-      <a href="documentation_AD_emirtech.pdf" target="_blank" class="pl pri">📄 Documentation ↓</a>
-      <button class="pl-more" onclick="openPpe2Modal()">En savoir plus...</button>
-    </div>
-  </div>
-</div>
+      <div class="pc reveal">
+        <div class="pc-placeholder" style="padding:0;overflow:hidden;height:220px;border-radius:var(--r-lg) var(--r-lg) 0 0;background:#020a02;">
+          <svg width="100%" height="100%" viewBox="120 10 440 165" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+            <style>.blink{animation:blink 1.2s step-end infinite;}@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}</style>
+            <rect x="140" y="20" width="400" height="140" rx="8" fill="#041504" stroke="#00ff41" stroke-width="1"/>
+            <rect x="140" y="20" width="400" height="30" rx="8" fill="#020a02" stroke="none"/>
+            <rect x="140" y="38" width="400" height="12" fill="#020a02" stroke="none"/>
+            <circle cx="158" cy="35" r="5" fill="#3a1a1a"/><circle cx="174" cy="35" r="5" fill="#3a3a1a"/><circle cx="190" cy="35" r="5" fill="#1a3a1a"/>
+            <text x="340" y="40" font-size="11" font-family="monospace" fill="#2d6a2d" text-anchor="middle">emir-tech — powershell</text>
+            <text x="165" y="78" font-size="13" font-family="monospace" fill="#2d6a2d">PS C:\&gt;</text>
+            <rect x="227" y="66" width="9" height="15" fill="#00ff41" class="blink"/>
+            <text x="340" y="112" font-size="26" font-weight="700" font-family="monospace" fill="#00ff41" text-anchor="middle">EMIR TECH</text>
+            <text x="340" y="135" font-size="13" font-family="monospace" fill="#2d6a2d" text-anchor="middle">Active Directory · Windows Server 2022</text>
+            <polyline points="142,22 133,22 133,30" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
+            <polyline points="538,22 547,22 547,30" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
+            <polyline points="142,158 133,158 133,150" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
+            <polyline points="538,158 547,158 547,150" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
+          </svg>
+        </div>
+        <div class="pc-body">
+          <div class="pc-title">PPE 2 — Déploiement Active Directory</div>
+          <p class="pc-desc">Mise en place d'un domaine Active Directory (AD DS, DNS, DHCP, GPO) sous Windows Server 2022 dans VMware pour Emir Tech.</p>
+          <div class="tags">
+            <span class="tag">Windows Server 2022</span><span class="tag">Active Directory</span><span class="tag">DNS</span>
+            <span class="tag">DHCP</span><span class="tag">GPO</span><span class="tag">VMware</span>
+          </div>
+          <div class="pc-links">
+            <a href="documentation_AD_emirtech.pdf" target="_blank" class="pl pri">📄 Documentation ↓</a>
+            <button class="pl-more" onclick="openPpe2Modal()">En savoir plus...</button>
+          </div>
+        </div>
+      </div>
       <div class="pc pc-ghost reveal"><div class="pc-placeholder" style="opacity:.3">📋</div><div class="pc-body"><div class="pc-title">PPE 3 — À venir</div><p class="pc-desc">Projet Professionnel Encadré à réaliser en cours de formation.</p><div class="tags"><span class="tag">À venir</span></div></div></div>
     </div>
   </div>
@@ -967,46 +1164,46 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
     <div class="proj-block-head reveal">Projets Personnels <small>Réalisations hors formation</small></div>
     <div class="pgrid">
       <div class="pc reveal">
-  <div class="pc-placeholder" style="padding:0;overflow:hidden;height:220px;border-radius:var(--r-lg) var(--r-lg) 0 0;background:#020a02;">
-    <svg width="100%" height="100%" viewBox="0 0 460 165" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-      <style>.blink{animation:blink 1.2s step-end infinite;}@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}</style>
-      <rect x="20" y="12" width="420" height="140" rx="8" fill="#041504" stroke="#00ff41" stroke-width="1"/>
-      <rect x="20" y="12" width="420" height="28" rx="8" fill="#020a02"/>
-      <rect x="20" y="28" width="420" height="12" fill="#020a02"/>
-      <circle cx="38" cy="26" r="5" fill="#3a1a1a"/>
-      <circle cx="54" cy="26" r="5" fill="#3a3a1a"/>
-      <circle cx="70" cy="26" r="5" fill="#1a3a1a"/>
-      <text x="230" y="31" font-size="10" font-family="monospace" fill="#2d6a2d" text-anchor="middle">homelab — casaos</text>
-      <!-- icône maison CasaOS stylisée -->
-      <g transform="translate(175,52)">
-        <polygon points="30,0 60,28 50,28 50,55 10,55 10,28 0,28" fill="none" stroke="#34d399" stroke-width="2" stroke-linejoin="round"/>
-        <rect x="22" y="38" width="16" height="17" fill="none" stroke="#34d399" stroke-width="1.5" rx="2"/>
-        <circle cx="30" cy="20" r="4" fill="#34d399" opacity=".6"/>
-      </g>
-      <text x="230" y="98" font-size="18" font-weight="700" font-family="monospace" fill="#00ff41" text-anchor="middle">HOMELAB</text>
-      <text x="230" y="116" font-size="10" font-family="monospace" fill="#2d6a2d" text-anchor="middle">CasaOS · Docker · AdGuard · Tailscale</text>
-      <text x="38" y="70" font-size="11" font-family="monospace" fill="#2d6a2d">root@homelab:~$</text>
-      <rect x="163" y="59" width="7" height="13" fill="#00ff41" class="blink"/>
-      <text x="38" y="145" font-size="9" font-family="monospace" fill="#1a4a1a">uptime: 21h/sem · conso: ~3€/mois · services: 3</text>
-      <polyline points="22,14 13,14 13,22" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
-      <polyline points="438,14 447,14 447,22" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
-      <polyline points="22,150 13,150 13,142" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
-      <polyline points="438,150 447,150 447,142" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
-    </svg>
-  </div>
-  <div class="pc-body">
-    <div class="pc-title">Homelab Personnel</div>
-    <p class="pc-desc">Serveur low-power sous Debian 13 avec CasaOS + Docker, filtrage DNS AdGuard Home, accès distant Tailscale et réveil RTC automatique.</p>
-    <div class="tags">
-      <span class="tag">Debian 13</span><span class="tag">CasaOS</span><span class="tag">Docker</span>
-      <span class="tag">AdGuard</span><span class="tag">Tailscale</span><span class="tag">RTC</span>
+        <div class="pc-placeholder" style="padding:0;overflow:hidden;height:220px;border-radius:var(--r-lg) var(--r-lg) 0 0;background:#020a02;">
+          <svg width="100%" height="100%" viewBox="0 0 460 165" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+            <style>.blink{animation:blink 1.2s step-end infinite;}@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}</style>
+            <rect x="20" y="12" width="420" height="140" rx="8" fill="#041504" stroke="#00ff41" stroke-width="1"/>
+            <rect x="20" y="12" width="420" height="28" rx="8" fill="#020a02"/>
+            <rect x="20" y="28" width="420" height="12" fill="#020a02"/>
+            <circle cx="38" cy="26" r="5" fill="#3a1a1a"/>
+            <circle cx="54" cy="26" r="5" fill="#3a3a1a"/>
+            <circle cx="70" cy="26" r="5" fill="#1a3a1a"/>
+            <text x="230" y="31" font-size="10" font-family="monospace" fill="#2d6a2d" text-anchor="middle">homelab — casaos</text>
+            <g transform="translate(175,52)">
+              <polygon points="30,0 60,28 50,28 50,55 10,55 10,28 0,28" fill="none" stroke="#34d399" stroke-width="2" stroke-linejoin="round"/>
+              <rect x="22" y="38" width="16" height="17" fill="none" stroke="#34d399" stroke-width="1.5" rx="2"/>
+              <circle cx="30" cy="20" r="4" fill="#34d399" opacity=".6"/>
+            </g>
+            <text x="230" y="98" font-size="18" font-weight="700" font-family="monospace" fill="#00ff41" text-anchor="middle">HOMELAB</text>
+            <text x="230" y="116" font-size="10" font-family="monospace" fill="#2d6a2d" text-anchor="middle">CasaOS · Docker · AdGuard · Tailscale</text>
+            <text x="38" y="70" font-size="11" font-family="monospace" fill="#2d6a2d">root@homelab:~$</text>
+            <rect x="163" y="59" width="7" height="13" fill="#00ff41" class="blink"/>
+            <text x="38" y="145" font-size="9" font-family="monospace" fill="#1a4a1a">uptime: 21h/sem · conso: ~3€/mois · services: 3</text>
+            <polyline points="22,14 13,14 13,22" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
+            <polyline points="438,14 447,14 447,22" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
+            <polyline points="22,150 13,150 13,142" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
+            <polyline points="438,150 447,150 447,142" fill="none" stroke="#00ff41" stroke-width="0.8" opacity="0.35"/>
+          </svg>
+        </div>
+        <div class="pc-body">
+          <div class="pc-title">Homelab Personnel</div>
+          <p class="pc-desc">Serveur low-power sous Debian 13 avec CasaOS + Docker, filtrage DNS AdGuard Home, accès distant Tailscale et réveil RTC automatique.</p>
+          <div class="tags">
+            <span class="tag">Debian 13</span><span class="tag">CasaOS</span><span class="tag">Docker</span>
+            <span class="tag">AdGuard</span><span class="tag">Tailscale</span><span class="tag">RTC</span>
+          </div>
+          <div class="pc-links">
+            <a href="homelab_documentation.pdf" target="_blank" class="pl pri">📄 Documentation ↓</a>
+            <button class="pl-more" onclick="openHomelabModal()">En savoir plus...</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="pc-links">
-      <a href="homelab_documentation.pdf" target="_blank" class="pl pri">📄 Documentation ↓</a>
-      <button class="pl-more" onclick="openHomelabModal()">En savoir plus...</button>
-    </div>
-  </div>
-</div>
   </div>
 
   <div class="proj-block" id="projets-pro">
@@ -1060,41 +1257,39 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
     <h2 class="reveal">Veille techno</h2>
     <p class="sub reveal">Épreuve obligatoire BTS SIO — minimum 3 veilles sur des sujets liés à l'infra, la sécurité ou les systèmes.</p>
     <div class="vgrid">
-<div class="vc reveal">
-  <div class="vc-cat">Veille 1</div>
-  <div class="vc-title">IA et cybersécurité</div>
-  <p class="vc-desc">L'IA transforme la cybersécurité : outil de détection des menaces pour les équipes SOC, mais aussi vecteur d'attaques (malwares polymorphiques, deepfakes, phishing ciblé). Double face d'une même technologie.</p>
-  <div class="vc-foot"><span class="vc-src">LeMagIT · ANSSI CERT-FR</span><span class="badge" style="background:rgba(52,211,153,.1);color:var(--accent);border:1px solid rgba(52,211,153,.2);">2025–2026</span></div>
-  <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:.75rem;">
-    <a href="https://www.lemagit.fr/essentialguide/La-cybersecurite-a-lheure-de-lIA-generative" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">LeMagIT — IA générative ↗</a>
-    <a href="https://www.lemagit.fr/conseil/Avantages-et-inconvenients-de-lIA-dans-la-cybersecurite" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">Pour & contre ↗</a>
-    <a href="https://www.cert.ssi.gouv.fr/uploads/CERTFR-2026-CTI-001.pdf" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">CERT-FR 2026 ↗</a>
-  </div>
-</div>
-
-<div class="vc reveal">
-  <div class="vc-cat">Veille 2</div>
-  <div class="vc-title">Active Directory et attaques</div>
-  <p class="vc-desc">Attaques Pass-the-Hash, Golden Ticket (Mimikatz/Kerberos) ciblant les contrôleurs de domaine. Mesures de mitigation : LAPS, Credential Guard, GPO de verrouillage, signature LDAP.</p>
-  <div class="vc-foot"><span class="vc-src">LeMagIT · CERT-EU</span><span class="badge" style="background:rgba(52,211,153,.1);color:var(--accent);border:1px solid rgba(52,211,153,.2);">2024–2026</span></div>
-  <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:.75rem;">
-    <a href="https://www.lemagit.fr/definition/Quest-ce-quune-attaque-pass-the-hash" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">Pass-the-Hash ↗</a>
-    <a href="https://www.lemagit.fr/conseil/Windows-Server-2025-comment-bien-reconfigurer-Active-Directory" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">AD Windows Server 2025 ↗</a>
-    <a href="https://cert.europa.eu/publications/security-guidance/CERT-EU_Security_Whitepaper_2014-007/pdf" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">Golden Ticket CERT-EU ↗</a>
-  </div>
-</div>
-
-<div class="vc reveal">
-  <div class="vc-cat">Veille 3</div>
-  <div class="vc-title">Ransomware et sauvegardes</div>
-  <p class="vc-desc">Les ransomwares ciblent désormais aussi les sauvegardes. Stratégie 3-2-1 (3 copies, 2 supports, 1 hors-site), sauvegardes immuables (WORM) et segmentation réseau comme défenses essentielles.</p>
-  <div class="vc-foot"><span class="vc-src">LeMagIT · FBI IC3</span><span class="badge" style="background:rgba(52,211,153,.1);color:var(--accent);border:1px solid rgba(52,211,153,.2);">2025–2026</span></div>
-  <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:.75rem;">
-    <a href="https://www.lemagit.fr/actualites/366641480/En-2025-la-preparation-et-la-resistance-au-ransomware-se-sont-renforcees" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">Résistance 2025 ↗</a>
-    <a href="https://www.lemagit.fr/conseil/Ransomware-comment-proteger-ses-sauvegardes-et-travailler-sa-resilience" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">Protéger ses sauvegardes ↗</a>
-    <a href="https://www.lemagit.fr/conseil/Face-aux-ransomwares-traiter-les-sauvegardes-comme-lultime-bastion" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">Ultime bastion ↗</a>
-  </div>
-</div>
+      <div class="vc reveal">
+        <div class="vc-cat">Veille 1</div>
+        <div class="vc-title">IA et cybersécurité</div>
+        <p class="vc-desc">L'IA transforme la cybersécurité : outil de détection des menaces pour les équipes SOC, mais aussi vecteur d'attaques (malwares polymorphiques, deepfakes, phishing ciblé). Double face d'une même technologie.</p>
+        <div class="vc-foot"><span class="vc-src">LeMagIT · ANSSI CERT-FR</span><span class="badge" style="background:rgba(52,211,153,.1);color:var(--accent);border:1px solid rgba(52,211,153,.2);">2025–2026</span></div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:.75rem;">
+          <a href="https://www.lemagit.fr/essentialguide/La-cybersecurite-a-lheure-de-lIA-generative" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">LeMagIT — IA générative ↗</a>
+          <a href="https://www.lemagit.fr/conseil/Avantages-et-inconvenients-de-lIA-dans-la-cybersecurite" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">Pour & contre ↗</a>
+          <a href="https://www.cert.ssi.gouv.fr/uploads/CERTFR-2026-CTI-001.pdf" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">CERT-FR 2026 ↗</a>
+        </div>
+      </div>
+      <div class="vc reveal">
+        <div class="vc-cat">Veille 2</div>
+        <div class="vc-title">Active Directory et attaques</div>
+        <p class="vc-desc">Attaques Pass-the-Hash, Golden Ticket (Mimikatz/Kerberos) ciblant les contrôleurs de domaine. Mesures de mitigation : LAPS, Credential Guard, GPO de verrouillage, signature LDAP.</p>
+        <div class="vc-foot"><span class="vc-src">LeMagIT · CERT-EU</span><span class="badge" style="background:rgba(52,211,153,.1);color:var(--accent);border:1px solid rgba(52,211,153,.2);">2024–2026</span></div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:.75rem;">
+          <a href="https://www.lemagit.fr/definition/Quest-ce-quune-attaque-pass-the-hash" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">Pass-the-Hash ↗</a>
+          <a href="https://www.lemagit.fr/conseil/Windows-Server-2025-comment-bien-reconfigurer-Active-Directory" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">AD Windows Server 2025 ↗</a>
+          <a href="https://cert.europa.eu/publications/security-guidance/CERT-EU_Security_Whitepaper_2014-007/pdf" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">Golden Ticket CERT-EU ↗</a>
+        </div>
+      </div>
+      <div class="vc reveal">
+        <div class="vc-cat">Veille 3</div>
+        <div class="vc-title">Ransomware et sauvegardes</div>
+        <p class="vc-desc">Les ransomwares ciblent désormais aussi les sauvegardes. Stratégie 3-2-1 (3 copies, 2 supports, 1 hors-site), sauvegardes immuables (WORM) et segmentation réseau comme défenses essentielles.</p>
+        <div class="vc-foot"><span class="vc-src">LeMagIT · FBI IC3</span><span class="badge" style="background:rgba(52,211,153,.1);color:var(--accent);border:1px solid rgba(52,211,153,.2);">2025–2026</span></div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:.75rem;">
+          <a href="https://www.lemagit.fr/actualites/366641480/En-2025-la-preparation-et-la-resistance-au-ransomware-se-sont-renforcees" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">Résistance 2025 ↗</a>
+          <a href="https://www.lemagit.fr/conseil/Ransomware-comment-proteger-ses-sauvegardes-et-travailler-sa-resilience" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">Protéger ses sauvegardes ↗</a>
+          <a href="https://www.lemagit.fr/conseil/Face-aux-ransomwares-traiter-les-sauvegardes-comme-lultime-bastion" target="_blank" class="pl" style="font-size:10px;padding:3px 9px;">Ultime bastion ↗</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1154,7 +1349,26 @@ h2{font-family:var(--font-ui);font-size:2.1rem;font-weight:800;color:var(--text)
   </div>
 </div>
 
+<!-- ═══ THEME TOGGLE ═══ -->
+<button id="theme-toggle" aria-label="Basculer le thème" title="Thème clair / sombre">🌙</button>
+
 <script>
+// ── Theme toggle ──
+(function(){
+  var btn=document.getElementById('theme-toggle');
+  var saved=localStorage.getItem('mv-theme')||'dark';
+  function applyTheme(t){
+    document.documentElement.setAttribute('data-theme',t);
+    btn.textContent=t==='light'?'☀️':'🌙';
+  }
+  applyTheme(saved);
+  btn.addEventListener('click',function(){
+    var next=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';
+    localStorage.setItem('mv-theme',next);
+    applyTheme(next);
+  });
+})();
+
 var menuToggle=document.getElementById('menu-toggle');
 if(menuToggle)menuToggle.addEventListener('change',function(){document.body.style.overflow=this.checked?'hidden':'';});
 
@@ -1204,11 +1418,10 @@ document.addEventListener('keydown',function(e){
     var so=document.getElementById('stack-overlay');
     if(so&&so.classList.contains('open'))so.classList.remove('open');
     var pm2=document.getElementById('ppe2-modal');
-if(pm2&&pm2.classList.contains('open'))closePpe2Modal();
-  var hm=document.getElementById('homelab-modal');
-if(hm&&hm.classList.contains('open'))closeHomelabModal();
-    }
-  
+    if(pm2&&pm2.classList.contains('open'))closePpe2Modal();
+    var hm=document.getElementById('homelab-modal');
+    if(hm&&hm.classList.contains('open'))closeHomelabModal();
+  }
 });
 // ── PPE2 Modal ──
 function openPpe2Modal(){
@@ -1223,7 +1436,7 @@ document.getElementById('ppe2-close').addEventListener('click',closePpe2Modal);
 document.getElementById('ppe2-modal').addEventListener('click',function(e){
   if(e.target===this)closePpe2Modal();
 });
-  // ── Homelab Modal ──
+// ── Homelab Modal ──
 function openHomelabModal(){
   document.getElementById('homelab-modal').classList.add('open');
   document.body.style.overflow='hidden';
